@@ -1,0 +1,5 @@
+# IntelliJ specific
+.idea
+.idea/*
+
+temp*
