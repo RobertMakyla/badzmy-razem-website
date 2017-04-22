@@ -85,6 +85,14 @@ checkHTMLPages () {
    done
 }
 
+addUpdateDateAndTime () {
+   for mapping in "${array[@]}" ; do
+      fName="${mapping%%:*}"
+      echo "Updating last date and time in ${target}/${fName}"
+      echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${target}/${fName}
+   done
+}
+
 main () {
    echo "Creating fresh target dir ${target}"
    rm -rf ${target}
@@ -95,8 +103,10 @@ main () {
    addMenuBar
    updatingWithCommon news.txt
    addPageContent
+   updatingWithCommon updatebar.txt
+   addUpdateDateAndTime
    updatingWithCommon footer.txt
-   
+
    copyStyleAndImages
    
    checkHTMLPages
