@@ -2,6 +2,11 @@
 
 gitIgnoredSecretDir=secret
 
+[[ ! -f ${gitIgnoredSecretDir}/host.txt      ]] &&  echo "Missing host.txt" && exit 1
+[[ ! -f ${gitIgnoredSecretDir}/user.txt      ]] &&  echo "Missing user.txt" && exit 1
+[[ ! -f ${gitIgnoredSecretDir}/pass.txt      ]] &&  echo "Missing pass.txt" && exit 1
+[[ ! -f ${gitIgnoredSecretDir}/targetdir.txt ]] &&  echo "Missing targetdir.txt" && exit 1
+
 HOST=$(       cat ${gitIgnoredSecretDir}/host.txt      ) # ftp://XXX.XXX.pl
 USER=$(       cat ${gitIgnoredSecretDir}/user.txt      ) # XXX
 PASS=$(       cat ${gitIgnoredSecretDir}/pass.txt      ) # XXX
