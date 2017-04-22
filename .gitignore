@@ -1,8 +1,8 @@
 # IntelliJ specific
 .idea
-.idea/*
 
-temp*
+# freshly generated website
+target
 
+# host user password
 secret
-secret/*

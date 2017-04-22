@@ -3,7 +3,7 @@
 pagesDir=pages
 commonsDir=common-parts
 styleDir=style
-target=./temporary-target-dir
+targetDir=./target
 
 array=( "index.html:O nas"
         "aktualnosci.html:Aktualności"
@@ -15,8 +15,8 @@ array=( "index.html:O nas"
 creatingEmptyHTML () {
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
-      echo "Creating empty ${target}/${fName}"   
-      touch ${target}/${fName} 
+      echo "Creating empty ${targetDir}/${fName}"
+      touch ${targetDir}/${fName}
    done
 } 
 
@@ -24,10 +24,10 @@ updatingWithCommon () {
    sourceFile=${commonsDir}/$1
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
-      echo "Updating ${target}/${fName} with ${sourceFile}"   
+      echo "Updating ${targetDir}/${fName} with ${sourceFile}"
    
       if [ -f ${sourceFile} ] ; then
-         cat ${sourceFile} >> ${target}/${fName} 
+         cat ${sourceFile} >> ${targetDir}/${fName}
       else 
          echo "File ${sourceFile} does not exist"
          exit 1
@@ -45,9 +45,9 @@ addMenuBar () {
 
          if [[ "${fName}" == "${menubarFName}" ]] ; then
                 echo "Adding menu-bar for ${fName} with title ${menubarTitle}"   
-            echo "          <li class='selected'><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${target}/${fName} 
+            echo "          <li class='selected'><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
          else 
-            echo "          <li><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${target}/${fName} 
+            echo "          <li><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
          fi
       done
       
@@ -60,43 +60,43 @@ addPageContent () {
       title="${mapping##*:}"
       
       if [ -f ${pagesDir}/${fName} ] ; then
-         echo "Adding page content from ${pagesDir}/${fName} to ${target}/${fName}"   
-         cat ${pagesDir}/${fName} >> ${target}/${fName} 
+         echo "Adding page content from ${pagesDir}/${fName} to ${targetDir}/${fName}"
+         cat ${pagesDir}/${fName} >> ${targetDir}/${fName}
       else 
-         echo "Adding empty content to ${target}/${fName}"   
-         echo "        <h1>${title}</h1>"      >> ${target}/${fName} 
-         echo "        <p>Dział w budowie</p>" >> ${target}/${fName} 
+         echo "Adding empty content to ${targetDir}/${fName}"
+         echo "        <h1>${title}</h1>"      >> ${targetDir}/${fName}
+         echo "        <p>Dział w budowie</p>" >> ${targetDir}/${fName}
       fi
       
    done
 }
 
 copyStyleAndImages () {
-   cp -fr ${styleDir} ${target}
+   cp -fr ${styleDir} ${targetDir}
 }
 
 checkHTMLPages () {
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
 
-      echo "Checking HTML syntax of ${target}/${fName}"   
+      echo "Checking HTML syntax of ${targetDir}/${fName}"
       
-      tidy -utf8 -xml -q -e ${target}/${fName}
+      tidy -utf8 -xml -q -e ${targetDir}/${fName}
    done
 }
 
 addUpdateDateAndTime () {
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
-      echo "Updating last date and time in ${target}/${fName}"
-      echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${target}/${fName}
+      echo "Updating last date and time in ${targetDir}/${fName}"
+      echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${targetDir}/${fName}
    done
 }
 
 main () {
-   echo "Creating fresh target dir ${target}"
-   rm -rf ${target}
-   mkdir -p ${target}
+   echo "Creating fresh target dir ${targetDir}"
+   rm -rf ${targetDir}
+   mkdir -p ${targetDir}
 
    creatingEmptyHTML
    updatingWithCommon header.txt

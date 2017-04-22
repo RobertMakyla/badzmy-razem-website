@@ -7,7 +7,14 @@ USER=$(       cat ${gitIgnoredSecretDir}/user.txt      ) # XXX
 PASS=$(       cat ${gitIgnoredSecretDir}/pass.txt      ) # XXX
 TARGETDIR=$(  cat ${gitIgnoredSecretDir}/targetdir.txt ) # /public_html/XXX/XXX
 
-SOURCEDIR='temporary-target-dir'
+SOURCEDIR=target
+
+if [ -d ${SOURCEDIR} ] ; then
+   echo "${SOURCEDIR} dir exists, so it will be synchronized with ${HOST}${TARGETDIR}"
+else
+   echo "${SOURCEDIR} dir doesn't exists. Use generate.sh to generate webpage in dir ${SOURCEDIR}"
+   exit 1
+fi
 
 lftp -f "
     open $HOST
