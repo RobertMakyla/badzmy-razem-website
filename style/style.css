@@ -101,7 +101,7 @@ ol li
 #logo
 { width: 825px;
   position: relative;
-  height: 280px;}
+  height: 301px;}
 
 #logo #logo_text 
 { position: absolute; 
@@ -130,9 +130,9 @@ ol li
 
 #menubar
 { width: 900px;
-  height: 72px;  /* grubość głównego paska menu */
+  height: 49px;            /* grubosc glownego paska menu */
   padding: 0;
-  background: #0C78C5;} 
+  background: #0C78C5;}
 
 ul#menu, ul#menu li
 { float: left;
@@ -147,8 +147,8 @@ ul#menu li a
   font: normal 90% arial, sans-serif;
   display: block; 
   float: left; 
-  height: 37px;
-  padding: 29px 26px 6px 26px;
+  height: 31px;                   /* wysokosc glownego paska menu */
+  padding: 17px 11px 1px 25px;     /* padding glownego paska menu */
   text-align: center;
   color: #FFF;
   text-transform: uppercase;
