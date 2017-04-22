@@ -81,7 +81,15 @@ checkHTMLPages () {
 
       echo "Checking HTML syntax of ${targetDir}/${fName}"
       
-      tidy -utf8 -xml -q -e ${targetDir}/${fName}
+      tidy -utf8 -q -e -xml ${targetDir}/${fName}
+      exitCode=$?
+      if [ ${exitCode} -eq 2 ] ; then
+         echo "FAILURE in ${fName}"
+         exit ${exitCode}
+      else
+         echo "HTML syntax is OK in ${fName}"
+      fi
+
    done
 }
 
@@ -113,3 +121,6 @@ main () {
 }
 
 main
+
+echo ""
+echo "SUCCESS"
