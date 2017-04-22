@@ -1,5 +1,8 @@
 #!/bin/bash
 
+pagesDir=pages
+commonsDir=common-parts
+styleDir=style
 target=./temporary-target-dir
 
 array=( "index.html:O nas"
@@ -18,7 +21,6 @@ creatingEmptyHTML () {
 } 
 
 updatingWithCommon () {
-   commonsDir=common-parts
    sourceFile=${commonsDir}/$1
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
@@ -36,10 +38,10 @@ updatingWithCommon () {
 addMenuBar () {
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
-   
+
       for menubarMapping in "${array[@]}" ; do
          menubarFName="${menubarMapping%%:*}"
-          menubarTitle="${menubarMapping##*:}"
+         menubarTitle="${menubarMapping##*:}"
 
          if [[ "${fName}" == "${menubarFName}" ]] ; then
                 echo "Adding menu-bar for ${fName} with title ${menubarTitle}"   
@@ -53,8 +55,6 @@ addMenuBar () {
 } 
 
 addPageContent () {
-   pagesDir=pages
-
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
       title="${mapping##*:}"
@@ -72,7 +72,7 @@ addPageContent () {
 }
 
 copyStyleAndImages () {
-   cp -fr style ${target}
+   cp -fr ${styleDir} ${target}
 }
 
 checkHTMLPages () {
