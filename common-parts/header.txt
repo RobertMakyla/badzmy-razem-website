@@ -2,23 +2,26 @@
 <html>
 
 <head>
-  <title>Bądźmy Razem - Stowarzyszenie Rodzin i Przyjaciół Osób z rozszczepem kręgosłupa i głęboką lub sprzężoną niepełnosprawnością</title>
-  <meta name="description" content="Bądźmy Razem Niepołomice" />
-  <meta name="keywords" content="Bądźmy, Razem, Stowarzyszenie, Niepołomice, Rozszczepienie, Niepełnosprawność" />
-  <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8"/>
-  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+    <title>Bądźmy Razem - Stowarzyszenie Rodzin i Przyjaciół Osób z rozszczepem kręgosłupa i głęboką lub sprzężoną
+        niepełnosprawnością</title>
+    <meta name="description" content="Bądźmy Razem Niepołomice"/>
+    <meta name="keywords" content="Bądźmy, Razem, Stowarzyszenie, Niepołomice, Rozszczepienie, Niepełnosprawność"/>
+    <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="style/style.css" title="style"/>
 </head>
 
 <body>
-  <div id="main">
+<div id="main">
     <div id="header">
-      <div id="logo">
-        <div id="logo_text">
-          <!-- class="logo_colour", allows you to change the colour of the text -->
-          <!--h1><a href="index.html">textured<span class="logo_colour">blue</span></a></h1-->
-          <!--h2>Simple. Contemporary. Website Template.</h2-->
+
+        <div id="logo">
+            <div id="logo_text">
+                <!-- class="logo_colour", allows you to change the colour of the text -->
+                <!--h1><a href="index.html">textured<span class="logo_colour">blue</span></a></h1-->
+                <!--h2>Simple. Contemporary. Website Template.</h2-->
+            </div>
         </div>
-      </div>
-      <div id="menubar">
-        <ul id="menu">
-          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+
+        <div id="menubar">
+            <ul id="menu">
+                <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
