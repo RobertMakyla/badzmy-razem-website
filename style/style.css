@@ -210,7 +210,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   font: normal 80% 'century gothic', arial, sans-serif;
   height: 20px;
   padding: 10px 0 0px 0;
-  text-align: right;
+  text-align: center;
   background: #FFF;
   color: #909090;
   letter-spacing: 0.2em;}
