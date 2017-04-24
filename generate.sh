@@ -44,7 +44,7 @@ addMenuBar () {
          menubarTitle="${menubarMapping##*:}"
 
          if [[ "${fName}" == "${menubarFName}" ]] ; then
-                echo "Adding menu-bar for ${fName} with title ${menubarTitle}"   
+                echo "Adding selected menu-bar item for ${fName} with title '${menubarTitle}'"
             echo "          <li class='selected'><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
          else 
             echo "          <li><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
@@ -75,22 +75,24 @@ copyStyleAndImages () {
    cp -fr ${styleDir} ${targetDir}
 }
 
-checkHTMLPages () {
+verifyHtmlSyntax () {
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
 
-      echo "Checking HTML syntax of ${targetDir}/${fName}"
-      
       tidy -utf8 -q -e -xml ${targetDir}/${fName}
       exitCode=$?
       if [ ${exitCode} -eq 2 ] ; then
-         echo "FAILURE in ${fName}"
+         echo ""
+         echo "FAILURE: HTML syntax is incorrect in ${fName}"
          exit ${exitCode}
       else
          echo "HTML syntax is OK in ${fName}"
       fi
 
    done
+
+   echo ""
+   echo "SUCCESS"
 }
 
 addUpdateDateAndTime () {
@@ -117,10 +119,7 @@ main () {
 
    copyStyleAndImages
    
-   checkHTMLPages
+   verifyHtmlSyntax
 }
 
 main
-
-echo ""
-echo "SUCCESS"
