@@ -4,6 +4,8 @@ pagesDir=pages
 commonsDir=common-parts
 styleDir=style
 targetDir=./target
+galleriesDir=galleries
+galleryNameFile=name.txt
 
 array=( "index.html:O nas"
         "aktualnosci.html:Aktualności"
@@ -24,8 +26,8 @@ updatingWithCommon () {
    sourceFile=${commonsDir}/$1
    for mapping in "${array[@]}" ; do
       fName="${mapping%%:*}"
-      echo "Updating ${targetDir}/${fName} with ${sourceFile}"
-   
+      echo "Adding ${sourceFile} to ${targetDir}/${fName}"
+
       if [ -f ${sourceFile} ] ; then
          cat ${sourceFile} >> ${targetDir}/${fName}
       else 
@@ -103,15 +105,31 @@ addUpdateDateAndTime () {
    done
 }
 
+generateGalleryMenu(){
+
+   for gallery in ${galleriesDir}/* ; do
+      echo "Adding to gallery menu: ${gallery}"
+      if [ ! -f ${gallery}/${galleryNameFile} ] ; then
+         echo "FAILURE: I can't find ${gallery}/${galleryNameFile}"
+         exit -1
+      fi
+   done
+
+}
+
 main () {
    echo "Creating fresh target dir ${targetDir}"
    rm -rf ${targetDir}
    mkdir -p ${targetDir}
 
+   generateGalleryMenu
+
    creatingEmptyHTML
    updatingWithCommon header.txt
    addMenuBar
+   updatingWithCommon news-start.txt
    updatingWithCommon news.txt
+   updatingWithCommon news-end.txt
    addPageContent
    updatingWithCommon updatebar.txt
    addUpdateDateAndTime

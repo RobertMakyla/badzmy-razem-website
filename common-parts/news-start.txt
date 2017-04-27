@@ -1,0 +1,6 @@
+            </ul>
+        </div>
+    </div>
+    <div id="site_content">
+        <div class="sidebar">
+            <!-- insert your sidebar items here -->
