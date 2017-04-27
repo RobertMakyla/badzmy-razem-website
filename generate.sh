@@ -1,19 +1,26 @@
 #!/bin/bash
 
+####################################  Variable  ######################################
 pagesDir=pages
 commonsDir=common-parts
 styleDir=style
 targetDir=./target
 galleriesDir=galleries
-galleryNameFile=name.txt
-galleryLink=gallery.links
 
-mainPages=( "index.html:O nas"
-        "aktualnosci.html:Aktualności"
-        "turnusy.html:Turnusy"
-        "galeria.html:Galeria"
-        "prawne.html:Regulamin / Status"
-        "kontakt.html:Kontakt" )
+galleryNameFile=name.txt
+galleryLinkFile=gallery.links
+
+####################################  Maps  ###########################################
+mainPagesMap=( "index.html:O nas"
+               "aktualnosci.html:Aktualności"
+               "turnusy.html:Turnusy"
+               "galeria.html:Galeria"
+               "prawne.html:Regulamin / Status"
+               "kontakt.html:Kontakt" )
+
+declare -A galleryPagesMap
+
+####################################  Functions  #####################################
 
 cleanTargetDir(){
    echo "Creating fresh target dir ${targetDir}"
@@ -44,7 +51,7 @@ updatingWithCommon () {
 addMenuBar () {
    pageHtmlFilename=$1
 
-   for menubarMapping in "${mainPages[@]}" ; do
+   for menubarMapping in "${mainPagesMap[@]}" ; do
       menubarFName="${menubarMapping%%:*}"
       menubarTitle="${menubarMapping##*:}"
       if [[ "${pageHtmlFilename}" == "${menubarFName}" ]] ; then
@@ -97,21 +104,26 @@ addUpdateDateAndTime () {
    echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${targetDir}/${pageHtmlFilename}
 }
 
-generateGalleryLinks(){
-   for gallery in ${galleriesDir}/* ; do
-      echo "Creating gallery link to: ${gallery}"
-      if [ ! -f ${gallery}/${galleryNameFile} ] ; then
-         echo "FAILURE: I can't find ${gallery}/${galleryNameFile}"
+generatingGalleryLinksAndMap(){
+   for galleryDir in ${galleriesDir}/* ; do
+      echo "Creating gallery link to: ${galleryDir}"
+      if [ ! -f ${galleryDir}/${galleryNameFile} ] ; then
+         echo "FAILURE: I can't find ${galleryDir}/${galleryNameFile}"
          exit -1
       fi
 
-      galleryPage="galeria_$(basename ${gallery}).html"
+      galleryNewPage="galeria_$(basename ${galleryDir}).html"
+      description=$(cat ${galleryDir}/${galleryNameFile})
 
-      # prepending line
-      line="<p><a href="${galleryPage}">$(cat ${gallery}/${galleryNameFile})</a></p>"
-      echo "${line}" > ${targetDir}/${galleryLink}.tmp
-      [[ -f ${targetDir}/${galleryLink} ]] && cat ${targetDir}/${galleryLink} >> ${targetDir}/${galleryLink}.tmp
-      mv -f ${targetDir}/${galleryLink}.tmp ${targetDir}/${galleryLink}
+      # pre-pending lines
+      line="<p><a href="${galleryNewPage}">${description}</a></p>"
+      echo "${line}" > ${targetDir}/${galleryLinkFile}.tmp
+      [[ -f ${targetDir}/${galleryLinkFile} ]] && cat ${targetDir}/${galleryLinkFile} >> ${targetDir}/${galleryLinkFile}.tmp
+      mv -f ${targetDir}/${galleryLinkFile}.tmp ${targetDir}/${galleryLinkFile}
+
+      # Putting Together Mapping:
+      # Gallery HTML FILE : Gallery Title
+      galleryPagesMap[${galleryNewPage}]=${description}
 
    done
 }
@@ -125,7 +137,7 @@ generatePage(){
        addMenuBar            "${pageHtmlFilename}"
        updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news-start.txt
        if [[ ${pageHtmlFilename} == galeria* ]] ; then
-           updatingWithCommon    "${pageHtmlFilename}"  ${targetDir}/${galleryLink}
+           updatingWithCommon    "${pageHtmlFilename}"  ${targetDir}/${galleryLinkFile}
        else
            updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news.txt
        fi
@@ -139,9 +151,17 @@ generatePage(){
 main () {
    cleanTargetDir
 
-   generateGalleryLinks
+   generatingGalleryLinksAndMap
 
-   for mainPage in "${mainPages[@]}" ; do
+   # generating galleries
+   for K in "${!galleryPagesMap[@]}" ; do
+       pageHtmlFilename=$K
+       pageHtmlTitle=${galleryPagesMap[$K]}
+       generatePage "${pageHtmlFilename}" "${pageHtmlTitle}"
+   done
+
+   # generating main pages
+   for mainPage in "${mainPagesMap[@]}" ; do
        pageHtmlFilename="${mainPage%%:*}"
        pageHtmlTitle="${mainPage##*:}"
        generatePage "${pageHtmlFilename}" "${pageHtmlTitle}"
