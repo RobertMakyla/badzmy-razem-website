@@ -129,23 +129,25 @@ generatingGalleryLinksAndMap(){
 }
 
 generatePage(){
-       pageHtmlFilename=$1
-       pageHtmlTitle=$2
+       filename=$1
+       title=$2
 
-       creatingEmptyHTML     "${pageHtmlFilename}"
-       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/header.txt
-       addMenuBar            "${pageHtmlFilename}"
-       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news-start.txt
-       if [[ ${pageHtmlFilename} == galeria* ]] ; then
-           updatingWithCommon    "${pageHtmlFilename}"  ${targetDir}/${galleryLinkFile}
+       creatingEmptyHTML        "${filename}"
+       updatingWithCommon       "${filename}"  ${commonsDir}/header.txt
+       addMenuBar               "${filename}"
+       updatingWithCommon       "${filename}"  ${commonsDir}/news-start.txt
+
+       if [[ ${filename} == galeria* ]] ; then
+           updatingWithCommon   "${filename}"  ${targetDir}/${galleryLinkFile}
        else
-           updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news.txt
+           updatingWithCommon   "${filename}"  ${commonsDir}/news.txt
        fi
-       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news-end.txt
-       addPageContent        "${pageHtmlFilename}"  "${pageHtmlTitle}"
-       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/updatebar.txt
-       addUpdateDateAndTime  "${pageHtmlFilename}"
-       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/footer.txt
+
+       updatingWithCommon       "${filename}"  ${commonsDir}/news-end.txt
+       addPageContent           "${filename}"  "${title}"
+       updatingWithCommon       "${filename}"  ${commonsDir}/updatebar.txt
+       addUpdateDateAndTime     "${filename}"
+       updatingWithCommon       "${filename}"  ${commonsDir}/footer.txt
 }
 
 main () {
@@ -155,16 +157,16 @@ main () {
 
    # generating galleries
    for K in "${!galleryPagesMap[@]}" ; do
-       pageHtmlFilename=$K
-       pageHtmlTitle=${galleryPagesMap[$K]}
-       generatePage "${pageHtmlFilename}" "${pageHtmlTitle}"
+       filename=$K
+       title=${galleryPagesMap[$K]}
+       generatePage "${filename}" "${title}"
    done
 
    # generating main pages
    for mainPage in "${mainPagesMap[@]}" ; do
-       pageHtmlFilename="${mainPage%%:*}"
-       pageHtmlTitle="${mainPage##*:}"
-       generatePage "${pageHtmlFilename}" "${pageHtmlTitle}"
+       filename="${mainPage%%:*}"
+       title="${mainPage##*:}"
+       generatePage "${filename}" "${title}"
    done
 
    copyStyleAndImages
