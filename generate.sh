@@ -29,7 +29,7 @@ creatingEmptyHTML () {
 
 updatingWithCommon () {
    fName=$1
-   sourceFile=${commonsDir}/$2
+   sourceFile=$2
    echo "Adding to ${targetDir}/${fName} the ${sourceFile}"
 
    if [ -f ${sourceFile} ] ; then
@@ -128,15 +128,15 @@ main () {
        title="${mapping##*:}"
 
        creatingEmptyHTML     "${fName}"
-       updatingWithCommon    "${fName}"  header.txt
+       updatingWithCommon    "${fName}"  ${commonsDir}/header.txt
        addMenuBar            "${fName}"
-       updatingWithCommon    "${fName}"  news-start.txt
-       updatingWithCommon    "${fName}"  news.txt
-       updatingWithCommon    "${fName}"  news-end.txt
+       updatingWithCommon    "${fName}"  ${commonsDir}/news-start.txt
+       updatingWithCommon    "${fName}"  ${commonsDir}/news.txt
+       updatingWithCommon    "${fName}"  ${commonsDir}/news-end.txt
        addPageContent        "${fName}"  "${title}"
-       updatingWithCommon    "${fName}"  updatebar.txt
+       updatingWithCommon    "${fName}"  ${commonsDir}/updatebar.txt
        addUpdateDateAndTime  "${fName}"
-       updatingWithCommon    "${fName}"  footer.txt
+       updatingWithCommon    "${fName}"  ${commonsDir}/footer.txt
    done
 
    copyStyleAndImages
