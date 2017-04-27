@@ -9,6 +9,7 @@ galleriesDir=galleries
 
 galleryNameFile=name.txt
 galleryLinkFile=gallery.links
+galleryPrefix=galeria
 
 ####################################  Maps  ###########################################
 mainPagesMap=( "index.html:O nas"
@@ -112,7 +113,7 @@ generatingGalleryLinksAndMap(){
          exit -1
       fi
 
-      galleryNewPage="galeria_$(basename ${galleryDir}).html"
+      galleryNewPage="${galleryPrefix}_$(basename ${galleryDir}).html"
       description=$(cat ${galleryDir}/${galleryNameFile})
 
       # pre-pending lines
@@ -137,7 +138,7 @@ generatePage(){
        addMenuBar               "${filename}"
        updatingWithCommon       "${filename}"  ${commonsDir}/news-start.txt
 
-       if [[ ${filename} == galeria* ]] ; then
+       if [[ ${filename} == ${galleryPrefix}* ]] ; then
            updatingWithCommon   "${filename}"  ${targetDir}/${galleryLinkFile}
        else
            updatingWithCommon   "${filename}"  ${commonsDir}/news.txt
