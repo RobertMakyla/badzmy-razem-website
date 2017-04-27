@@ -21,19 +21,19 @@ cleanTargetDir(){
 }
 
 creatingEmptyHTML () {
-      fName=$1
+      pageHtmlFilename=$1
       echo ""
-      echo "Creating empty ${targetDir}/${fName}"
-      touch ${targetDir}/${fName}
+      echo "Creating empty ${targetDir}/${pageHtmlFilename}"
+      touch ${targetDir}/${pageHtmlFilename}
 }
 
 updatingWithCommon () {
-   fName=$1
+   pageHtmlFilename=$1
    sourceFile=$2
-   echo "Adding to ${targetDir}/${fName} the ${sourceFile}"
+   echo "Adding to ${targetDir}/${pageHtmlFilename} the ${sourceFile}"
 
    if [ -f ${sourceFile} ] ; then
-      cat ${sourceFile} >> ${targetDir}/${fName}
+      cat ${sourceFile} >> ${targetDir}/${pageHtmlFilename}
    else
       echo "File ${sourceFile} does not exist"
       exit 1
@@ -41,30 +41,30 @@ updatingWithCommon () {
 }
 
 addMenuBar () {
-   fName=$1
+   pageHtmlFilename=$1
 
    for menubarMapping in "${array[@]}" ; do
       menubarFName="${menubarMapping%%:*}"
       menubarTitle="${menubarMapping##*:}"
-      if [[ "${fName}" == "${menubarFName}" ]] ; then
-         echo "          <li class='selected'><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
+      if [[ "${pageHtmlFilename}" == "${menubarFName}" ]] ; then
+         echo "          <li class='selected'><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${pageHtmlFilename}
       else
-         echo "          <li><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
+         echo "          <li><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${pageHtmlFilename}
       fi
    done
 }
 
 addPageContent () {
-   fName=$1
-   title=$2
+   pageHtmlFilename=$1
+   pageHtmlTitle=$2
 
-   if [ -f ${pagesDir}/${fName} ] ; then
-      echo "Adding to ${targetDir}/${fName} page content from ${pagesDir}/${fName} "
-      cat ${pagesDir}/${fName} >> ${targetDir}/${fName}
+   if [ -f ${pagesDir}/${pageHtmlFilename} ] ; then
+      echo "Adding to ${targetDir}/${pageHtmlFilename} page content from ${pagesDir}/${pageHtmlFilename} "
+      cat ${pagesDir}/${pageHtmlFilename} >> ${targetDir}/${pageHtmlFilename}
    else
-      echo "Adding to ${targetDir}/${fName} empty page content"
-      echo "        <h1>${title}</h1>"      >> ${targetDir}/${fName}
-      echo "        <p>Dział w budowie</p>" >> ${targetDir}/${fName}
+      echo "Adding to ${targetDir}/${pageHtmlFilename} empty page content"
+      echo "        <h1>${pageHtmlTitle}</h1>"      >> ${targetDir}/${pageHtmlFilename}
+      echo "        <p>Dział w budowie</p>" >> ${targetDir}/${pageHtmlFilename}
    fi
 }
 
@@ -91,22 +91,20 @@ verifyHtmlSyntax () {
 }
 
 addUpdateDateAndTime () {
-   fName=$1
-   echo "Adding to ${targetDir}/${fName} the last date of modification"
-   echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${targetDir}/${fName}
+   pageHtmlFilename=$1
+   echo "Adding to ${targetDir}/${pageHtmlFilename} the last date of modification"
+   echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${targetDir}/${pageHtmlFilename}
 }
 
 generateGalleryLinks(){
-   var=0
    for gallery in ${galleriesDir}/* ; do
-      var=$((var + 1))
       echo "Creating gallery link to: ${gallery}"
       if [ ! -f ${gallery}/${galleryNameFile} ] ; then
          echo "FAILURE: I can't find ${gallery}/${galleryNameFile}"
          exit -1
       fi
       galleryLink=gallery.links
-      galleryPage=gallery_${var}.html
+      galleryPage="gallery_$(basename ${gallery}).html"
 
       # prepending line
       line="<p><a href="${galleryPage}">$(cat ${gallery}/${galleryNameFile})</a></p>"
@@ -124,19 +122,19 @@ main () {
    generateGalleryLinks
 
    for mapping in "${array[@]}" ; do
-       fName="${mapping%%:*}"
-       title="${mapping##*:}"
+       pageHtmlFilename="${mapping%%:*}"
+       pageHtmlTitle="${mapping##*:}"
 
-       creatingEmptyHTML     "${fName}"
-       updatingWithCommon    "${fName}"  ${commonsDir}/header.txt
-       addMenuBar            "${fName}"
-       updatingWithCommon    "${fName}"  ${commonsDir}/news-start.txt
-       updatingWithCommon    "${fName}"  ${commonsDir}/news.txt
-       updatingWithCommon    "${fName}"  ${commonsDir}/news-end.txt
-       addPageContent        "${fName}"  "${title}"
-       updatingWithCommon    "${fName}"  ${commonsDir}/updatebar.txt
-       addUpdateDateAndTime  "${fName}"
-       updatingWithCommon    "${fName}"  ${commonsDir}/footer.txt
+       creatingEmptyHTML     "${pageHtmlFilename}"
+       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/header.txt
+       addMenuBar            "${pageHtmlFilename}"
+       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news-start.txt
+       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news.txt
+       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news-end.txt
+       addPageContent        "${pageHtmlFilename}"  "${pageHtmlTitle}"
+       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/updatebar.txt
+       addUpdateDateAndTime  "${pageHtmlFilename}"
+       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/footer.txt
    done
 
    copyStyleAndImages
