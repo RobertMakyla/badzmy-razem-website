@@ -105,7 +105,7 @@ generateGalleryLinks(){
          exit -1
       fi
 
-      galleryPage="gallery_$(basename ${gallery}).html"
+      galleryPage="galeria_$(basename ${gallery}).html"
 
       # prepending line
       line="<p><a href="${galleryPage}">$(cat ${gallery}/${galleryNameFile})</a></p>"
@@ -124,7 +124,11 @@ generatePage(){
        updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/header.txt
        addMenuBar            "${pageHtmlFilename}"
        updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news-start.txt
-       updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news.txt
+       if [[ ${pageHtmlFilename} == galeria* ]] ; then
+           updatingWithCommon    "${pageHtmlFilename}"  ${targetDir}/${galleryLink}
+       else
+           updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news.txt
+       fi
        updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/news-end.txt
        addPageContent        "${pageHtmlFilename}"  "${pageHtmlTitle}"
        updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/updatebar.txt
