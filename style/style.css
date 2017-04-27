@@ -95,8 +95,9 @@ ol li
   background-position: center center;              /* optional, center the image */
   overflow: hidden;
   margin: 0 auto 0 auto;
-  width: 898px;
-  height: 350px;}
+  width: 1050px;
+  height: 350px;
+}
 
 #logo
 { width: 825px;
@@ -129,7 +130,7 @@ ol li
   color: #DDD;}
 
 #menubar
-{ width: 900px;
+{ width: 1051px;
   height: 49px;            /* grubosc glownego paska menu */
   padding: 0;
   background: #0C78C5;}
@@ -160,10 +161,10 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   background: #075186;}
 
 #site_content
-{ width: 837px;
+{ width: 1050px;
   overflow: hidden;
   margin: 0 auto 0 auto;
-  padding: 20px 24px 40px 37px;
+  padding: 20px 0px 40px 0px;
   background: #FFF;} 
 
 .sidebar
@@ -191,8 +192,8 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 
 #content
 { text-align: left;
-  width: 620px;
-  margin: 0px 0px 0px 100px;
+  width: 900px;
+  margin: 0px 0px 0px 80px;
   padding: 0;}
 
 #content ul
@@ -206,7 +207,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   line-height: 1.5em;}
 
 #updatebar
-{ width: 900px;
+{ width: 1050px;
   font: normal 80% 'century gothic', arial, sans-serif;
   height: 20px;
   padding: 10px 0 0px 0;
@@ -216,7 +217,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   letter-spacing: 0.2em;}
 
 #footer
-{ width: 900px;
+{ width: 1050px;
   font: normal 90% 'lucida sans unicode', arial, sans-serif;
   height: 33px;
   padding: 17px 0 0px 0;
