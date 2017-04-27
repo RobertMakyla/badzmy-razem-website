@@ -14,63 +14,58 @@ array=( "index.html:O nas"
         "prawne.html:Regulamin / Status"
         "kontakt.html:Kontakt" )
 
+cleanTargetDir(){
+   echo "Creating fresh target dir ${targetDir}"
+   rm -rf ${targetDir}
+   mkdir -p ${targetDir}
+}
+
 creatingEmptyHTML () {
-   for mapping in "${array[@]}" ; do
-      fName="${mapping%%:*}"
+      fName=$1
+      echo ""
       echo "Creating empty ${targetDir}/${fName}"
       touch ${targetDir}/${fName}
-   done
-} 
+}
 
 updatingWithCommon () {
-   sourceFile=${commonsDir}/$1
-   for mapping in "${array[@]}" ; do
-      fName="${mapping%%:*}"
-      echo "Adding ${sourceFile} to ${targetDir}/${fName}"
+   fName=$1
+   sourceFile=${commonsDir}/$2
+   echo "Adding to ${targetDir}/${fName} the ${sourceFile}"
 
-      if [ -f ${sourceFile} ] ; then
-         cat ${sourceFile} >> ${targetDir}/${fName}
-      else 
-         echo "File ${sourceFile} does not exist"
-         exit 1
-      fi
-   done
-} 
+   if [ -f ${sourceFile} ] ; then
+      cat ${sourceFile} >> ${targetDir}/${fName}
+   else
+      echo "File ${sourceFile} does not exist"
+      exit 1
+   fi
+}
 
 addMenuBar () {
-   for mapping in "${array[@]}" ; do
-      fName="${mapping%%:*}"
+   fName=$1
 
-      for menubarMapping in "${array[@]}" ; do
-         menubarFName="${menubarMapping%%:*}"
-         menubarTitle="${menubarMapping##*:}"
-
-         if [[ "${fName}" == "${menubarFName}" ]] ; then
-                echo "Adding selected menu-bar item for ${fName} with title '${menubarTitle}'"
-            echo "          <li class='selected'><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
-         else 
-            echo "          <li><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
-         fi
-      done
-      
+   for menubarMapping in "${array[@]}" ; do
+      menubarFName="${menubarMapping%%:*}"
+      menubarTitle="${menubarMapping##*:}"
+      if [[ "${fName}" == "${menubarFName}" ]] ; then
+         echo "          <li class='selected'><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
+      else
+         echo "          <li><a href='${menubarFName}'>${menubarTitle}</a></li>" >> ${targetDir}/${fName}
+      fi
    done
-} 
+}
 
 addPageContent () {
-   for mapping in "${array[@]}" ; do
-      fName="${mapping%%:*}"
-      title="${mapping##*:}"
-      
-      if [ -f ${pagesDir}/${fName} ] ; then
-         echo "Adding page content from ${pagesDir}/${fName} to ${targetDir}/${fName}"
-         cat ${pagesDir}/${fName} >> ${targetDir}/${fName}
-      else 
-         echo "Adding empty content to ${targetDir}/${fName}"
-         echo "        <h1>${title}</h1>"      >> ${targetDir}/${fName}
-         echo "        <p>Dział w budowie</p>" >> ${targetDir}/${fName}
-      fi
-      
-   done
+   fName=$1
+   title=$2
+
+   if [ -f ${pagesDir}/${fName} ] ; then
+      echo "Adding to ${targetDir}/${fName} page content from ${pagesDir}/${fName} "
+      cat ${pagesDir}/${fName} >> ${targetDir}/${fName}
+   else
+      echo "Adding to ${targetDir}/${fName} empty page content"
+      echo "        <h1>${title}</h1>"      >> ${targetDir}/${fName}
+      echo "        <p>Dział w budowie</p>" >> ${targetDir}/${fName}
+   fi
 }
 
 copyStyleAndImages () {
@@ -78,17 +73,17 @@ copyStyleAndImages () {
 }
 
 verifyHtmlSyntax () {
-   for mapping in "${array[@]}" ; do
-      fName="${mapping%%:*}"
+   echo ""
+   for file2Veify in ${targetDir}/*.html ; do
 
-      tidy -utf8 -q -e -xml ${targetDir}/${fName}
+      tidy -utf8 -q -e -xml ${file2Veify}
       exitCode=$?
       if [ ${exitCode} -eq 2 ] ; then
          echo ""
-         echo "FAILURE: HTML syntax is incorrect in ${fName}"
+         echo "FAILURE: HTML syntax is incorrect in ${file2Veify}"
          exit ${exitCode}
       else
-         echo "HTML syntax is OK in ${fName}"
+         echo "HTML syntax is OK in ${file2Veify}"
       fi
 
    done
@@ -98,42 +93,58 @@ verifyHtmlSyntax () {
 }
 
 addUpdateDateAndTime () {
-   for mapping in "${array[@]}" ; do
-      fName="${mapping%%:*}"
-      echo "Updating last date and time in ${targetDir}/${fName}"
-      echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${targetDir}/${fName}
-   done
+   fName=$1
+   echo "Adding to ${targetDir}/${fName} the last date of modification"
+   echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${targetDir}/${fName}
 }
 
-generateGalleryMenu(){
-
+generateGalleryLinks(){
+   var=0
    for gallery in ${galleriesDir}/* ; do
-      echo "Adding to gallery menu: ${gallery}"
+      var=$((var + 1))
+      echo "Creating gallery link to: ${gallery}"
       if [ ! -f ${gallery}/${galleryNameFile} ] ; then
          echo "FAILURE: I can't find ${gallery}/${galleryNameFile}"
          exit -1
       fi
+      galleryLink=gallery_${var}.link
+      galleryPage=gallery_${var}.html
+      echo "<p><a href="${galleryPage}">$(cat ${gallery}/${galleryNameFile})</a></p>" >> ${targetDir}/${galleryLink}
    done
+}
 
+generateGalleryPages(){
+   var=0
+   for linkFile in ${targetDir}/gallery_*.link ; do
+      var=$((var + 1))
+      echo "Creating gallery page: ${gallery}"
+      galleryLink=gallery_${var}.link
+      galleryPage=gallery_${var}.html
+      echo "<p><a href="${galleryPage}">$(cat ${gallery}/${galleryNameFile})</a></p>" >> ${targetDir}/${galleryLink}
+   done
 }
 
 main () {
-   echo "Creating fresh target dir ${targetDir}"
-   rm -rf ${targetDir}
-   mkdir -p ${targetDir}
+   cleanTargetDir
 
-   generateGalleryMenu
+   generateGalleryLinks
+   generateGalleryPages
 
-   creatingEmptyHTML
-   updatingWithCommon header.txt
-   addMenuBar
-   updatingWithCommon news-start.txt
-   updatingWithCommon news.txt
-   updatingWithCommon news-end.txt
-   addPageContent
-   updatingWithCommon updatebar.txt
-   addUpdateDateAndTime
-   updatingWithCommon footer.txt
+   for mapping in "${array[@]}" ; do
+       fName="${mapping%%:*}"
+       title="${mapping##*:}"
+
+       creatingEmptyHTML     "${fName}"
+       updatingWithCommon    "${fName}"  header.txt
+       addMenuBar            "${fName}"
+       updatingWithCommon    "${fName}"  news-start.txt
+       updatingWithCommon    "${fName}"  news.txt
+       updatingWithCommon    "${fName}"  news-end.txt
+       addPageContent        "${fName}"  "${title}"
+       updatingWithCommon    "${fName}" updatebar.txt
+       addUpdateDateAndTime  "${fName}"
+       updatingWithCommon    "${fName}" footer.txt
+   done
 
    copyStyleAndImages
    
