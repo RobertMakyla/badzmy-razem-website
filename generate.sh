@@ -141,9 +141,9 @@ main () {
 
    generateGalleryLinks
 
-   for mapping in "${mainPages[@]}" ; do
-       pageHtmlFilename="${mapping%%:*}"
-       pageHtmlTitle="${mapping##*:}"
+   for mainPage in "${mainPages[@]}" ; do
+       pageHtmlFilename="${mainPage%%:*}"
+       pageHtmlTitle="${mainPage##*:}"
        generatePage "${pageHtmlFilename}" "${pageHtmlTitle}"
    done
 
