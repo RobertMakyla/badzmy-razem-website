@@ -82,16 +82,16 @@ copyStyleAndImages () {
 
 verifyHtmlSyntax () {
    echo ""
-   for file2Verify in ${targetDir}/*.html ; do
+   for eachHtmlFile in ${targetDir}/*.html ; do
 
-      tidy -utf8 -q -e -xml ${file2Verify}
+      tidy -utf8 -q -e -xml ${eachHtmlFile}
       exitCode=$?
       if [ ${exitCode} -eq 2 ] ; then
          echo ""
-         echo "FAILURE: HTML syntax is incorrect in ${file2Verify}"
+         echo "FAILURE: HTML syntax is incorrect in ${eachHtmlFile}"
          exit ${exitCode}
       else
-         echo "HTML syntax is OK in ${file2Verify}"
+         echo "HTML syntax is OK in ${eachHtmlFile}"
       fi
    done
    echo ""
