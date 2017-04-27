@@ -7,7 +7,10 @@
     <meta name="description" content="Bądźmy Razem Niepołomice"/>
     <meta name="keywords" content="Bądźmy, Razem, Stowarzyszenie, Niepołomice, Rozszczepienie, Niepełnosprawność"/>
     <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8"/>
-    <link rel="stylesheet" type="text/css" href="style/style.css" title="style"/>
+    <link rel="stylesheet" type="text/css" href="style/css/style.css" title="style"/>
+    <link rel="stylesheet" type="text/css" href="style/css/lightslider.css" title="lightslider"/>
+    <script src="style/js/jquery.min.js"></script>
+    <script src="style/js/lightslider.js"></script>
 </head>
 
 <body>
