@@ -170,7 +170,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 .sidebar
 { float: left;
   width: 210px;
-  padding: 0 15px 20px 15px;}
+  padding: 0 15px 20px 30px;}
 
 .sidebar ul
 { width: 178px; 
