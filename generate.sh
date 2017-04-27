@@ -138,7 +138,7 @@ generatePage(){
        addMenuBar               "${filename}"
        updatingWithCommon       "${filename}"  ${commonsDir}/news-start.txt
 
-       if [[ ${filename} == ${galleryPrefix}* ]] ; then
+       if [[ ${filename} == ${galleryPrefix}*.html ]] ; then
            updatingWithCommon   "${filename}"  ${targetDir}/${galleryLinkFile}
        else
            updatingWithCommon   "${filename}"  ${commonsDir}/news.txt
