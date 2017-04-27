@@ -6,8 +6,9 @@ styleDir=style
 targetDir=./target
 galleriesDir=galleries
 galleryNameFile=name.txt
+galleryLink=gallery.links
 
-array=( "index.html:O nas"
+mainPages=( "index.html:O nas"
         "aktualnosci.html:Aktualności"
         "turnusy.html:Turnusy"
         "galeria.html:Galeria"
@@ -43,7 +44,7 @@ updatingWithCommon () {
 addMenuBar () {
    pageHtmlFilename=$1
 
-   for menubarMapping in "${array[@]}" ; do
+   for menubarMapping in "${mainPages[@]}" ; do
       menubarFName="${menubarMapping%%:*}"
       menubarTitle="${menubarMapping##*:}"
       if [[ "${pageHtmlFilename}" == "${menubarFName}" ]] ; then
@@ -103,7 +104,7 @@ generateGalleryLinks(){
          echo "FAILURE: I can't find ${gallery}/${galleryNameFile}"
          exit -1
       fi
-      galleryLink=gallery.links
+
       galleryPage="gallery_$(basename ${gallery}).html"
 
       # prepending line
@@ -115,15 +116,9 @@ generateGalleryLinks(){
    done
 }
 
-
-main () {
-   cleanTargetDir
-
-   generateGalleryLinks
-
-   for mapping in "${array[@]}" ; do
-       pageHtmlFilename="${mapping%%:*}"
-       pageHtmlTitle="${mapping##*:}"
+generatePage(){
+       pageHtmlFilename=$1
+       pageHtmlTitle=$2
 
        creatingEmptyHTML     "${pageHtmlFilename}"
        updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/header.txt
@@ -135,6 +130,17 @@ main () {
        updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/updatebar.txt
        addUpdateDateAndTime  "${pageHtmlFilename}"
        updatingWithCommon    "${pageHtmlFilename}"  ${commonsDir}/footer.txt
+}
+
+main () {
+   cleanTargetDir
+
+   generateGalleryLinks
+
+   for mapping in "${mainPages[@]}" ; do
+       pageHtmlFilename="${mapping%%:*}"
+       pageHtmlTitle="${mapping##*:}"
+       generatePage "${pageHtmlFilename}" "${pageHtmlTitle}"
    done
 
    copyStyleAndImages
