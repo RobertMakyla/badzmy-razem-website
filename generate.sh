@@ -74,20 +74,18 @@ copyStyleAndImages () {
 
 verifyHtmlSyntax () {
    echo ""
-   for file2Veify in ${targetDir}/*.html ; do
+   for file2Verify in ${targetDir}/*.html ; do
 
-      tidy -utf8 -q -e -xml ${file2Veify}
+      tidy -utf8 -q -e -xml ${file2Verify}
       exitCode=$?
       if [ ${exitCode} -eq 2 ] ; then
          echo ""
-         echo "FAILURE: HTML syntax is incorrect in ${file2Veify}"
+         echo "FAILURE: HTML syntax is incorrect in ${file2Verify}"
          exit ${exitCode}
       else
-         echo "HTML syntax is OK in ${file2Veify}"
+         echo "HTML syntax is OK in ${file2Verify}"
       fi
-
    done
-
    echo ""
    echo "SUCCESS"
 }
@@ -141,9 +139,9 @@ main () {
        updatingWithCommon    "${fName}"  news.txt
        updatingWithCommon    "${fName}"  news-end.txt
        addPageContent        "${fName}"  "${title}"
-       updatingWithCommon    "${fName}" updatebar.txt
+       updatingWithCommon    "${fName}"  updatebar.txt
        addUpdateDateAndTime  "${fName}"
-       updatingWithCommon    "${fName}" footer.txt
+       updatingWithCommon    "${fName}"  footer.txt
    done
 
    copyStyleAndImages
