@@ -105,28 +105,23 @@ generateGalleryLinks(){
          echo "FAILURE: I can't find ${gallery}/${galleryNameFile}"
          exit -1
       fi
-      galleryLink=gallery_${var}.link
+      galleryLink=gallery.links
       galleryPage=gallery_${var}.html
-      echo "<p><a href="${galleryPage}">$(cat ${gallery}/${galleryNameFile})</a></p>" >> ${targetDir}/${galleryLink}
+
+      # prepending line
+      line="<p><a href="${galleryPage}">$(cat ${gallery}/${galleryNameFile})</a></p>"
+      echo "${line}" > ${targetDir}/${galleryLink}.tmp
+      [[ -f ${targetDir}/${galleryLink} ]] && cat ${targetDir}/${galleryLink} >> ${targetDir}/${galleryLink}.tmp
+      mv -f ${targetDir}/${galleryLink}.tmp ${targetDir}/${galleryLink}
+
    done
 }
 
-generateGalleryPages(){
-   var=0
-   for linkFile in ${targetDir}/gallery_*.link ; do
-      var=$((var + 1))
-      echo "Creating gallery page: ${gallery}"
-      galleryLink=gallery_${var}.link
-      galleryPage=gallery_${var}.html
-      echo "<p><a href="${galleryPage}">$(cat ${gallery}/${galleryNameFile})</a></p>" >> ${targetDir}/${galleryLink}
-   done
-}
 
 main () {
    cleanTargetDir
 
    generateGalleryLinks
-   generateGalleryPages
 
    for mapping in "${array[@]}" ; do
        fName="${mapping%%:*}"
