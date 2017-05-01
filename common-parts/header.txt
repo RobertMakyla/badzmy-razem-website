@@ -19,8 +19,10 @@
             $('#image-gallery').lightSlider({
                 gallery:true,
                 item:1,
-                autoWidth: true,
+                autoWidth: false,
                 slideMargin: 0,
+
+                pauseOnHover: true,
 
                 speed: 400, //ms' - how fast pictures are changed
                 auto: false,
@@ -29,6 +31,19 @@
                 pause: 2000,  //ms' - pause between pictures changes
 
                 adaptiveHeight:true,
+
+        vertical:false,
+        verticalHeight:600,
+        vThumbWidth:100,
+
+        galleryMargin: 0,
+        thumbMargin: 5,
+        currentPagerPosition: 'middle',
+
+        enableTouch:true,
+        enableDrag:true,
+        freeMove:true,
+        swipeThreshold: 0,
 
                 onSliderLoad: function() {
                     $('#image-gallery').removeClass('cS-hidden');
