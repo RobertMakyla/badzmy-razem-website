@@ -10,6 +10,7 @@ galleriesDir=galleries
 galleryNameFile=name.txt
 galleryLinkFile=gallery.links
 galleryPrefix=galeria
+galleryContentSuffix=contentsOfGallery
 
 ####################################  Maps  ###########################################
 mainPagesMap=( "index.html:O nas"
@@ -106,7 +107,7 @@ addUpdateDateAndTime () {
    echo "Data ostatniej modyfikacji: $(date +'%Y-%m-%d %H:%M:%S')" >> ${targetDir}/${pageHtmlFilename}
 }
 
-generatingGalleryLinksAndMap(){
+generatingGalleryLinksAndContentAndMap(){
    for galleryDir in ${galleriesDir}/* ; do
       echo "Creating gallery link to: ${galleryDir}"
       if [ ! -f ${galleryDir}/${galleryNameFile} ] ; then
@@ -122,6 +123,10 @@ generatingGalleryLinksAndMap(){
       echo "${line}" > ${targetDir}/${galleryLinkFile}.tmp
       [[ -f ${targetDir}/${galleryLinkFile} ]] && cat ${targetDir}/${galleryLinkFile} >> ${targetDir}/${galleryLinkFile}.tmp
       mv -f ${targetDir}/${galleryLinkFile}.tmp ${targetDir}/${galleryLinkFile}
+
+      echo "Creating gallery content to: ${galleryDir}"
+      galleryContentFile="${galleryPrefix}_$(basename ${galleryDir})_${galleryContentSuffix}"
+      echo "lista JPEGów" >> ${targetDir}/${galleryContentFile}
 
       # Putting Together Mapping:
       # Gallery HTML FILE : Gallery Title
@@ -146,7 +151,13 @@ generatePage(){
        fi
 
        updatingWithCommon       "${filename}"  ${commonsDir}/news-end.txt
-       addPageContent           "${pagesDir}"  "${filename}"  "${title}"
+
+       if [[ ${filename} == ${galleryPrefix}*.html ]] ; then
+           addPageContent       "${targetDir}"  "${filename}"  "${title}"
+       else
+           addPageContent       "${pagesDir}"   "${filename}"  "${title}"
+       fi
+
        updatingWithCommon       "${filename}"  ${commonsDir}/updatebar.txt
        addUpdateDateAndTime     "${filename}"
        updatingWithCommon       "${filename}"  ${commonsDir}/footer.txt
@@ -155,7 +166,7 @@ generatePage(){
 main () {
    cleanTargetDir
 
-   generatingGalleryLinksAndMap
+   generatingGalleryLinksAndContentAndMap
 
    # generating galleries
    for K in "${!galleryPagesMap[@]}" ; do
