@@ -144,8 +144,8 @@ generatingGalleryLinksAndContentAndMap(){
       # filling content file with data
       for imgFile in ${galleryDir}/* ; do
           if [[ ${imgFile} != ${galleryDir}/${galleryNameFile} ]] ; then
-              echo "  <li data-thumb='${imgFile}' width=10 heigth=10 >"          >> ${targetDir}/${galleryContentFile}
-              echo "    <img src='${imgFile}' />"            >> ${targetDir}/${galleryContentFile}
+              echo "  <li data-thumb='${imgFile}' >"          >> ${targetDir}/${galleryContentFile}
+              echo "    <img src='${imgFile}' height=400 width=600 />"            >> ${targetDir}/${galleryContentFile}
               echo "  </li>"                                 >> ${targetDir}/${galleryContentFile}
           fi
       done
