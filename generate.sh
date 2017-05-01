@@ -111,6 +111,11 @@ addUpdateDateAndTime () {
 
 generatingGalleryLinksAndContentAndMap(){
    for galleryDir in ${galleriesDir}/* ; do
+
+      ############################
+      # Creating .link file      #
+      ############################
+
       echo "Creating gallery link to: ${galleryDir}"
       if [ ! -f ${galleryDir}/${galleryNameFile} ] ; then
          echo "FAILURE: I can't find ${galleryDir}/${galleryNameFile}"
@@ -126,12 +131,23 @@ generatingGalleryLinksAndContentAndMap(){
       [[ -f ${targetDir}/${galleryLinkFile} ]] && cat ${targetDir}/${galleryLinkFile} >> ${targetDir}/${galleryLinkFile}.tmp
       mv -f ${targetDir}/${galleryLinkFile}.tmp ${targetDir}/${galleryLinkFile}
 
+      ############################
+      # Creating *.content files #
+      ############################
       echo "Creating gallery content of: ${galleryDir}"
       galleryContentFile="${galleryNewPage}.${galleryContentSuffix}"
-      echo "lista JPEGów z ${galleryDir}" >> ${targetDir}/${galleryContentFile}
 
-      # Putting Together Mapping:
-      # Gallery HTML FILE : Gallery Title
+      for imgFile in ${galleryDir}/* ; do
+          if [[ ${imgFile} != ${galleryDir}/${galleryNameFile} ]] ; then
+              echo "${imgFile}" >> ${targetDir}/${galleryContentFile}
+              echo "<br/>" >> ${targetDir}/${galleryContentFile}
+          fi
+      done
+
+      #####################################
+      # Putting Together Mapping:         #
+      # Gallery HTML FILE : Gallery Title #
+      #####################################
       galleryPagesMap[${galleryNewPage}]=${description}
 
    done
