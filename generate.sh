@@ -64,12 +64,13 @@ addMenuBar () {
 }
 
 addPageContent () {
-   pageHtmlFilename=$1
-   pageHtmlTitle=$2
+   pageHtmlParentDir=$1
+   pageHtmlFilename=$2
+   pageHtmlTitle=$3
 
-   if [ -f ${pagesDir}/${pageHtmlFilename} ] ; then
-      echo "Adding to ${targetDir}/${pageHtmlFilename} page content from ${pagesDir}/${pageHtmlFilename} "
-      cat ${pagesDir}/${pageHtmlFilename} >> ${targetDir}/${pageHtmlFilename}
+   if [ -f ${pageHtmlParentDir}/${pageHtmlFilename} ] ; then
+      echo "Adding to ${targetDir}/${pageHtmlFilename} page content from ${pageHtmlParentDir}/${pageHtmlFilename} "
+      cat ${pagesDir}/${pageHtmlParentDir} >> ${targetDir}/${pageHtmlFilename}
    else
       echo "Adding to ${targetDir}/${pageHtmlFilename} empty page content"
       echo "        <h1>${pageHtmlTitle}</h1>"      >> ${targetDir}/${pageHtmlFilename}
@@ -145,7 +146,7 @@ generatePage(){
        fi
 
        updatingWithCommon       "${filename}"  ${commonsDir}/news-end.txt
-       addPageContent           "${filename}"  "${title}"
+       addPageContent           "${pagesDir}"  "${filename}"  "${title}"
        updatingWithCommon       "${filename}"  ${commonsDir}/updatebar.txt
        addUpdateDateAndTime     "${filename}"
        updatingWithCommon       "${filename}"  ${commonsDir}/footer.txt
