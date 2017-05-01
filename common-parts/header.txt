@@ -9,7 +9,6 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" type="text/css" href="style/css/style.css" title="style"/>
-    <!-- http://sachinchoolur.github.io/lightslider/-->
     <link rel="stylesheet"  href="style/css/lightslider.css"/>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -18,9 +17,9 @@
     	 $(document).ready(function() {
             $('#image-gallery').lightSlider({
                      item: 1,
-                     autoWidth: true,
+                     autoWidth: false,
                      slideMove: 1, // slidemove will be 1 if loop is true
-                     slideMargin: 10,
+                     slideMargin: 0,
 
                      addClass: '',
                      mode: "slide",
@@ -43,20 +42,20 @@
                      adaptiveHeight:true, // Dynamically adjust slider height based on each slide's height
 
                      vertical:false,
-                     verticalHeight: 700,
+                     verticalHeight: 100,
                      vThumbWidth:50,
 
                   // thumbItem: 10,
                      pager: true,
                      gallery: true,
-                     galleryMargin: 5,   // Spacing between gallery and slide
+                     galleryMargin: 0,   // Spacing between gallery and slide
                      thumbMargin: 5,     // Spacing between each thumbnails
                      currentPagerPosition: 'left',
 
                      enableTouch:true,
                      enableDrag:true,
                      freeMove:false,
-                     swipeThreshold: 40,   // ??????????
+                     swipeThreshold: 0,   // ??????????
 
                      responsive : [],
 

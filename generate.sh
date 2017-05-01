@@ -139,18 +139,19 @@ generatingGalleryLinksAndContentAndMap(){
       galleryContentFile="${galleryNewPage}.${galleryContentSuffix}"
 
       # starting content file
+      echo ' <div class="sliderClass">'  >> ${targetDir}/${galleryContentFile}
       echo ' <ul id="image-gallery" class="gallery list-unstyled cS-hidden">'  >> ${targetDir}/${galleryContentFile}
 
       # filling content file with data
       for imgFile in ${galleryDir}/* ; do
           if [[ ${imgFile} != ${galleryDir}/${galleryNameFile} ]] ; then
               echo "  <li data-thumb='${imgFile}' >"          >> ${targetDir}/${galleryContentFile}
-              echo "    <img src='${imgFile}'  width=550px />"            >> ${targetDir}/${galleryContentFile}
+              echo "    <img src='${imgFile}' />"            >> ${targetDir}/${galleryContentFile}
               echo "  </li>"                                 >> ${targetDir}/${galleryContentFile}
           fi
       done
       # ending content file
-      echo '</ul>'   >> ${targetDir}/${galleryContentFile}
+      echo '</ul></div>'   >> ${targetDir}/${galleryContentFile}
 
       #####################################
       # Putting Together Mapping:         #
