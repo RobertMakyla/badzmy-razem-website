@@ -10,7 +10,7 @@ galleriesDir=galleries
 galleryNameFile=name.txt
 galleryLinkFile=gallery.links
 galleryPrefix=galeria
-galleryContentSuffix=contentsOfGallery
+galleryContentSuffix=content
 
 ####################################  Maps  ###########################################
 mainPagesMap=( "index.html:O nas"
@@ -65,17 +65,19 @@ addMenuBar () {
 }
 
 addPageContent () {
-   pageHtmlParentDir=$1
-   pageHtmlFilename=$2
-   pageHtmlTitle=$3
+   sourceParentDir=$1
+   sourceFilename=$2
+   destinationParentDir=$3
+   destinationFilename=$4
+   title=$5
 
-   if [ -f ${pageHtmlParentDir}/${pageHtmlFilename} ] ; then
-      echo "Adding to ${targetDir}/${pageHtmlFilename} page content from ${pageHtmlParentDir}/${pageHtmlFilename} "
-      cat ${pagesDir}/${pageHtmlParentDir} >> ${targetDir}/${pageHtmlFilename}
+   if [ -f ${sourceParentDir}/${sourceFilename} ] ; then
+      echo "Adding to ${destinationParentDir}/${destinationFilename} page content from ${sourceParentDir}/${sourceFilename} "
+      cat ${sourceParentDir}/${sourceFilename} >> ${destinationParentDir}/${destinationFilename}
    else
-      echo "Adding to ${targetDir}/${pageHtmlFilename} empty page content"
-      echo "        <h1>${pageHtmlTitle}</h1>"      >> ${targetDir}/${pageHtmlFilename}
-      echo "        <p>Dział w budowie</p>" >> ${targetDir}/${pageHtmlFilename}
+      echo "Adding to ${destinationParentDir}/${destinationFilename} empty page content"
+      echo "        <h1>${title}</h1>"      >> ${destinationParentDir}/${destinationFilename}
+      echo "        <p>Dział w budowie</p>" >> ${destinationParentDir}/${destinationFilename}
    fi
 }
 
@@ -124,9 +126,9 @@ generatingGalleryLinksAndContentAndMap(){
       [[ -f ${targetDir}/${galleryLinkFile} ]] && cat ${targetDir}/${galleryLinkFile} >> ${targetDir}/${galleryLinkFile}.tmp
       mv -f ${targetDir}/${galleryLinkFile}.tmp ${targetDir}/${galleryLinkFile}
 
-      echo "Creating gallery content to: ${galleryDir}"
-      galleryContentFile="${galleryPrefix}_$(basename ${galleryDir})_${galleryContentSuffix}"
-      echo "lista JPEGów" >> ${targetDir}/${galleryContentFile}
+      echo "Creating gallery content of: ${galleryDir}"
+      galleryContentFile="${galleryNewPage}.${galleryContentSuffix}"
+      echo "lista JPEGów z ${galleryDir}" >> ${targetDir}/${galleryContentFile}
 
       # Putting Together Mapping:
       # Gallery HTML FILE : Gallery Title
@@ -152,10 +154,10 @@ generatePage(){
 
        updatingWithCommon       "${filename}"  ${commonsDir}/news-end.txt
 
-       if [[ ${filename} == ${galleryPrefix}*.html ]] ; then
-           addPageContent       "${targetDir}"  "${filename}"  "${title}"
+       if [[ ${filename} == ${galleryPrefix}_*.html ]] ; then
+           addPageContent       "${targetDir}"  "${filename}.${galleryContentSuffix}"  "${targetDir}"  "${filename}"  "${title}"
        else
-           addPageContent       "${pagesDir}"   "${filename}"  "${title}"
+           addPageContent       "${pagesDir}"   "${filename}"                          "${targetDir}"  "${filename}"  "${title}"
        fi
 
        updatingWithCommon       "${filename}"  ${commonsDir}/updatebar.txt
