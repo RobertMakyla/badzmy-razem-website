@@ -83,6 +83,7 @@ addPageContent () {
 
 copyStyleAndImages () {
    cp -fr ${styleDir} ${targetDir}
+   cp -fr ${galleriesDir} ${targetDir}
 }
 
 verifyHtmlSyntax () {
@@ -137,12 +138,19 @@ generatingGalleryLinksAndContentAndMap(){
       echo "Creating gallery content of: ${galleryDir}"
       galleryContentFile="${galleryNewPage}.${galleryContentSuffix}"
 
+      # starting content file
+      echo ' <ul id="image-gallery" class="gallery list-unstyled cS-hidden">'  >> ${targetDir}/${galleryContentFile}
+
+      # filling content file with data
       for imgFile in ${galleryDir}/* ; do
           if [[ ${imgFile} != ${galleryDir}/${galleryNameFile} ]] ; then
-              echo "${imgFile}" >> ${targetDir}/${galleryContentFile}
-              echo "<br/>" >> ${targetDir}/${galleryContentFile}
+              echo "  <li data-thumb='${imgFile}' width=10 heigth=10 >"          >> ${targetDir}/${galleryContentFile}
+              echo "    <img src='${imgFile}' />"            >> ${targetDir}/${galleryContentFile}
+              echo "  </li>"                                 >> ${targetDir}/${galleryContentFile}
           fi
       done
+      # ending content file
+      echo '</ul>'   >> ${targetDir}/${galleryContentFile}
 
       #####################################
       # Putting Together Mapping:         #

@@ -6,16 +6,28 @@
         niepełnosprawnością</title>
     <meta name="description" content="Bądźmy Razem Niepołomice"/>
     <meta name="keywords" content="Bądźmy, Razem, Stowarzyszenie, Niepołomice, Rozszczepienie, Niepełnosprawność"/>
-    <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" type="text/css" href="style/css/style.css" title="style"/>
     <!-- http://sachinchoolur.github.io/lightslider/-->
-    <link rel="stylesheet" type="text/css" href="style/css/lightslider.css" title="lightslider"/>
+    <link rel="stylesheet"  href="style/css/lightslider.css"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="style/js/lightslider.js"></script>
-    <script src="style/js/jquery.min.js"></script>
-    <script type="text/javascript">
-          $(document).ready(function() {
-            $("#lightSlider").lightSlider();
-          });
+    <script>
+    	 $(document).ready(function() {
+            $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                slideMargin: 0,
+                speed:1000,
+                auto:true,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+		});
     </script>
 </head>
 
