@@ -8,9 +8,15 @@
     <meta name="keywords" content="Bądźmy, Razem, Stowarzyszenie, Niepołomice, Rozszczepienie, Niepełnosprawność"/>
     <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href="style/css/style.css" title="style"/>
+    <!-- http://sachinchoolur.github.io/lightslider/-->
     <link rel="stylesheet" type="text/css" href="style/css/lightslider.css" title="lightslider"/>
-    <script src="style/js/jquery.min.js"></script>
     <script src="style/js/lightslider.js"></script>
+    <script src="style/js/jquery.min.js"></script>
+    <script type="text/javascript">
+          $(document).ready(function() {
+            $("#lightSlider").lightSlider();
+          });
+    </script>
 </head>
 
 <body>
