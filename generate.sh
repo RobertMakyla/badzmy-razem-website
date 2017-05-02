@@ -39,13 +39,13 @@ creatingEmptyHTML () {
 
 updatingWithCommon () {
    pageHtmlFilename=$1
-   sourceFile=$2
-   echo "Adding to ${targetDir}/${pageHtmlFilename} the ${sourceFile}"
+   srcFileAbsolutePath=$2
+   echo "Adding to ${targetDir}/${pageHtmlFilename} the ${srcFileAbsolutePath}"
 
-   if [ -f ${sourceFile} ] ; then
-      cat ${sourceFile} >> ${targetDir}/${pageHtmlFilename}
+   if [ -f ${srcFileAbsolutePath} ] ; then
+      cat ${srcFileAbsolutePath} >> ${targetDir}/${pageHtmlFilename}
    else
-      echo "File ${sourceFile} does not exist"
+      echo "File ${srcFileAbsolutePath} does not exist"
       exit 1
    fi
 }
