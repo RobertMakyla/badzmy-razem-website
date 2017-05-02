@@ -124,11 +124,11 @@ generatingGalleryLinksAndContentAndMap(){
          exit -1
       fi
 
-      galleryNewPage="${galleryPrefix}_$(basename ${galleryDir}).html"
+      galleryHtmlPage="${galleryPrefix}_$(basename ${galleryDir}).html"
       description=$(cat ${galleryDir}/${galleryNameFile})
 
-      # pre-pending lines
-      line="<p><a href="${galleryNewPage}">${description}</a></p>"
+      # pre-pending lines (newest on the top)
+      line="<p><a href="${galleryHtmlPage}">${description}</a></p>"
       echo "${line}" > ${targetDir}/${galleryLinkFile}.tmp
       [[ -f ${targetDir}/${galleryLinkFile} ]] && cat ${targetDir}/${galleryLinkFile} >> ${targetDir}/${galleryLinkFile}.tmp
       mv -f ${targetDir}/${galleryLinkFile}.tmp ${targetDir}/${galleryLinkFile}
@@ -139,23 +139,23 @@ generatingGalleryLinksAndContentAndMap(){
       #                          #
       ############################
       echo "Creating gallery content of: ${galleryDir}"
-      galleryContentFile="${galleryNewPage}.${galleryContentSuffix}"
+      galleryContentFile="${galleryHtmlPage}.${galleryContentSuffix}"
 
       # starting content file
-      echo '<div class="sliderClass">'  >> ${targetDir}/${galleryContentFile}
-      echo ' <ul id="image-gallery" class="gallery list-unstyled cS-hidden">'  >> ${targetDir}/${galleryContentFile}
+      echo '<div class="sliderClass">'                   >> ${targetDir}/${galleryContentFile}
+      echo '  <ul id="image-gallery" class="cS-hidden">' >> ${targetDir}/${galleryContentFile}
 
-      # filling content file with data
+      # filling gallery content file with images
       for imgFile in ${galleryDir}/* ; do
           if [[ ${imgFile} != ${galleryDir}/${galleryNameFile} ]] ; then
-              echo "  <li data-thumb='${imgFile}' >"          >> ${targetDir}/${galleryContentFile}
-              echo "    <img src='${imgFile}' />"            >> ${targetDir}/${galleryContentFile}
-              echo "  </li>"                                 >> ${targetDir}/${galleryContentFile}
+              echo "    <li data-thumb='${imgFile}' >" >> ${targetDir}/${galleryContentFile}
+              echo "        <img src='${imgFile}' />"  >> ${targetDir}/${galleryContentFile}
+              echo "     </li>"                        >> ${targetDir}/${galleryContentFile}
           fi
       done
       # ending content file
-      echo ' </ul>'   >> ${targetDir}/${galleryContentFile}
-      echo '</div>'   >> ${targetDir}/${galleryContentFile}
+      echo '  </ul>' >> ${targetDir}/${galleryContentFile}
+      echo '</div>'  >> ${targetDir}/${galleryContentFile}
 
       #####################################
       #                                   #
@@ -163,7 +163,7 @@ generatingGalleryLinksAndContentAndMap(){
       # Gallery HTML FILE : Gallery Title #
       #                                   #
       #####################################
-      galleryPagesMap[${galleryNewPage}]=${description}
+      galleryPagesMap[${galleryHtmlPage}]=${description}
 
    done
 }
