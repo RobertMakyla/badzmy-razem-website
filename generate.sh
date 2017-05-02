@@ -1,6 +1,6 @@
 #!/bin/bash
 
-####################################  Variable  ######################################
+####################################  Variables  #####################################
 pagesDir=pages
 commonsDir=common-parts
 styleDir=style
@@ -65,19 +65,19 @@ addMenuBar () {
 }
 
 addPageContent () {
-   sourceParentDir=$1
-   sourceFilename=$2
-   destinationParentDir=$3
-   destinationFilename=$4
+   srcParentDir=$1
+   srcFilename=$2
+   dstParentDir=$3
+   dstFilename=$4
    title=$5
 
-   if [ -f ${sourceParentDir}/${sourceFilename} ] ; then
-      echo "Adding to ${destinationParentDir}/${destinationFilename} page content from ${sourceParentDir}/${sourceFilename} "
-      cat ${sourceParentDir}/${sourceFilename} >> ${destinationParentDir}/${destinationFilename}
+   if [ -f ${srcParentDir}/${srcFilename} ] ; then
+      echo "Adding to ${dstParentDir}/${dstFilename} page content from ${srcParentDir}/${srcFilename} "
+      cat ${srcParentDir}/${srcFilename} >> ${dstParentDir}/${dstFilename}
    else
-      echo "Adding to ${destinationParentDir}/${destinationFilename} empty page content"
-      echo "        <h1>${title}</h1>"      >> ${destinationParentDir}/${destinationFilename}
-      echo "        <p>Dział w budowie</p>" >> ${destinationParentDir}/${destinationFilename}
+      echo "Adding to ${dstParentDir}/${dstFilename} empty page content"
+      echo "        <h1>${title}</h1>"      >> ${dstParentDir}/${dstFilename}
+      echo "        <p>Dział w budowie</p>" >> ${dstParentDir}/${dstFilename}
    fi
 }
 
@@ -114,9 +114,10 @@ generatingGalleryLinksAndContentAndMap(){
    for galleryDir in ${galleriesDir}/* ; do
 
       ############################
+      #                          #
       # Creating .link file      #
+      #                          #
       ############################
-
       echo "Creating gallery link to: ${galleryDir}"
       if [ ! -f ${galleryDir}/${galleryNameFile} ] ; then
          echo "FAILURE: I can't find ${galleryDir}/${galleryNameFile}"
@@ -133,13 +134,15 @@ generatingGalleryLinksAndContentAndMap(){
       mv -f ${targetDir}/${galleryLinkFile}.tmp ${targetDir}/${galleryLinkFile}
 
       ############################
+      #                          #
       # Creating *.content files #
+      #                          #
       ############################
       echo "Creating gallery content of: ${galleryDir}"
       galleryContentFile="${galleryNewPage}.${galleryContentSuffix}"
 
       # starting content file
-      echo ' <div class="sliderClass">'  >> ${targetDir}/${galleryContentFile}
+      echo '<div class="sliderClass">'  >> ${targetDir}/${galleryContentFile}
       echo ' <ul id="image-gallery" class="gallery list-unstyled cS-hidden">'  >> ${targetDir}/${galleryContentFile}
 
       # filling content file with data
@@ -151,11 +154,14 @@ generatingGalleryLinksAndContentAndMap(){
           fi
       done
       # ending content file
-      echo '</ul></div>'   >> ${targetDir}/${galleryContentFile}
+      echo ' </ul>'   >> ${targetDir}/${galleryContentFile}
+      echo '</div>'   >> ${targetDir}/${galleryContentFile}
 
       #####################################
+      #                                   #
       # Putting Together Mapping:         #
       # Gallery HTML FILE : Gallery Title #
+      #                                   #
       #####################################
       galleryPagesMap[${galleryNewPage}]=${description}
 
