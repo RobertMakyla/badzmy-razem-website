@@ -142,6 +142,7 @@ generatingGalleryLinksAndContentAndMap(){
       galleryContentFile="${galleryHtmlPage}.${galleryContentSuffix}"
 
       # starting content file
+      echo "<h1>${description}</h1>"                     >> ${targetDir}/${galleryContentFile}
       echo '<div class="sliderClass">'                   >> ${targetDir}/${galleryContentFile}
       echo '  <ul id="image-gallery" class="cS-hidden">' >> ${targetDir}/${galleryContentFile}
 
