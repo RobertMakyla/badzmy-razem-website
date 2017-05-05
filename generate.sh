@@ -15,9 +15,9 @@ galleryContentSuffix=content
 ####################################  Maps  ###########################################
 mainPagesMap=( "index.html:O nas"
                "aktualnosci.html:Aktualności"
-               "turnusy.html:Turnusy"
                "galeria.html:Galeria"
-               "prawne.html:Regulamin / Status"
+               "prawne.html:Regulamin / Statut"
+               "sprawozdania.html:Sprawozdania"
                "kontakt.html:Kontakt" )
 
 declare -A galleryPagesMap
