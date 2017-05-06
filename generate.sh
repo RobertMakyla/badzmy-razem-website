@@ -128,7 +128,7 @@ generatingGalleryLinksAndContentAndMap(){
       description=$(cat ${galleryDir}/${galleryNameFile})
 
       # pre-pending lines (newest on the top)
-      line="<p><a href="${galleryHtmlPage}">${description}</a></p>"
+      line="<h7><a href="${galleryHtmlPage}">${description}</a></h7>"
       echo "${line}" > ${targetDir}/${galleryLinkFile}.tmp
       [[ -f ${targetDir}/${galleryLinkFile} ]] && cat ${targetDir}/${galleryLinkFile} >> ${targetDir}/${galleryLinkFile}.tmp
       mv -f ${targetDir}/${galleryLinkFile}.tmp ${targetDir}/${galleryLinkFile}
