@@ -25,13 +25,13 @@ h1, h2, h3, h4, h5, h6
 
 h2
 { font: normal 175% 'century gothic', arial, sans-serif;
-  color: #0C78C5;}
+  color: #719809;}
 
 h4, h5, h6
 { margin: 0;
   padding: 0 0 5px 0;
   font: normal 120% arial, sans-serif;
-  color: #0C78C5;}
+  color: #719809;}
 
 h5, h6
 { font: italic 95% arial, sans-serif;
@@ -44,7 +44,7 @@ h6
 a, a:hover
 { outline: none;
   text-decoration: underline;
-  color: #6037CE;}
+  color: #286508;}
 
 a:hover
 { text-decoration: none;}
@@ -122,7 +122,7 @@ ol li
   text-decoration: none;}
 
 #logo_text h1 a .logo_colour
-{ color: #0C78C5;}
+{ color: #719809;}
 
 #logo_text h2
 { font-size: 100%;
@@ -133,7 +133,7 @@ ol li
 { width: 1051px;
   height: 49px;            /* grubosc glownego paska menu */
   padding: 0;
-  background: #0C78C5;}
+  background: #719809;}
 
 ul#menu, ul#menu li
 { float: left;
@@ -158,13 +158,13 @@ ul#menu li a
 
 ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 { color: #FFF;
-  background: #075186;}
+  background: #5c7d04;}
 
 #site_content
 { width: 1050px;
   overflow: hidden;
   margin: 0 auto 0 auto;
-  padding: 20px 0px 40px 0px;
+  padding: 20px 0px 20px 0px;
   background: #FFF;} 
 
 .sidebar
@@ -193,7 +193,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 .sidelogo
 { float: right;
   width: 210px;
-  padding: 0px 40px 15px 20px;}
+  padding: 0px 50px 15px 10px;}
 
 #content
 { text-align: left;
@@ -226,7 +226,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   height: 33px;
   padding: 17px 0 0px 0;
   text-align: center; 
-  background: #0C78C5;
+  background: #719809;
   color: #FFF;
   text-transform: uppercase;
   letter-spacing: 0.1em;}
@@ -278,7 +278,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   height: 33px;
   padding: 2px 0 3px 0;
   cursor: pointer; 
-  background: #0C78C5; 
+  background: #719809;
   color: #FFF;}
 
 .form_settings textarea, .form_settings select
@@ -301,17 +301,19 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   border-top: 1px solid #D9D5CF;
   border-bottom: 1px solid #FFF;
   margin: 0 0 20px 0;}
-  
-table
-{ margin: 10px 0 30px 0;}
+
+.centertable table
+{ background: #FFF;}
+
+.centertable td
+{padding: 0px 0px 0px 50px;}
 
 table tr th, table tr td
-{ background: #3B3B3B;
-  color: #FFF;
-  padding: 7px 4px;
+{ color: #FFF;
+  padding: 0px 0px;
   text-align: left;}
   
 table tr td
-{ background: #F0EFE2;
+{ background: #FFF;
   color: #47433F;
-  border-top: 1px solid #FFF;}
+  border-top: 0px solid #FFF;}

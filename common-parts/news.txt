@@ -1,18 +1,12 @@
 <h3>Ostatnio dodane</h3>
 
-<h4>Nowy dział Galeria zdjęć</h4>
-<h5>Maj 2017</h5>
-<p>Galeria zdjęć już ryszuła ...<br/><a href="galeria.html">Czytaj więcej</a></p>
-
-<p></p>
-
 <h4>Przekaż nam <img src="style/images/jeden-procent.png" heigth=30 width=30/> podatku</h4>
-<h5>Kwiecień 2017</h5>
+<!--h5>Maj 2017</h5-->
 <p>KRS 0000414760 ...<br/><a href="aktualnosci.html#1procent">Czytaj więcej</a></p>
 <p></p>
 
 <h4>Nowa strona internetowa</h4>
-<h5>Kwiecień 2017</h5>
+<!--h5>Maj 2017</h5-->
 <p>Nowa strona internetowa już ruszyła ...<br/><a href="aktualnosci.html#nowaStrona">Czytaj więcej</a></p>
 <p></p>
 

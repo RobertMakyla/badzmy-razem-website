@@ -186,6 +186,8 @@ generatePage(){
 
        updatingWithCommon       "${filename}"  ${commonsDir}/news-end.txt
 
+       updatingWithCommon       "${filename}"  ${commonsDir}/sidelogo.txt
+
        if [[ ${filename} == ${galleryPrefix}_*.html ]] ; then
            addPageContent       "${targetDir}"  "${filename}.${galleryContentSuffix}"  "${targetDir}"  "${filename}"  "${title}"
        else
