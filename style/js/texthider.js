@@ -5,8 +5,8 @@
 		var config = {
 			showChars: 300,
 			ellipsesText: "...",
-			moreText: "czytaj więcej",
-			lessText: "schowaj"
+			moreText: "more",
+			lessText: "less"
 		};
 
 		if (settings) {

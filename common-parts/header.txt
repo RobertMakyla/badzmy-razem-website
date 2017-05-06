@@ -19,10 +19,10 @@
     <script type="text/javascript">
         $(document).ready(function() {
            $(".comment").shorten({
-            	"showChars" : 160,
+            	"showChars" : 150,
             	"ellipsesText" : " ...",
             	"moreText"	: "czytaj więcej",
-            	"lessText"	: "schowaj",
+            	"lessText"	: "schowaj artykuł",
            });
         });
     </script>
