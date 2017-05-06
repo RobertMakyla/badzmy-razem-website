@@ -12,16 +12,10 @@ galleryLinkFile=gallery.links
 galleryPrefix=galeria
 galleryContentSuffix=content
 
-####################################  Maps  ###########################################
-mainPagesMap=( "index.html:O nas"
-               "aktualnosci.html:Aktualności"
-               "galeria.html:Galeria"
-               "prawne.html:Regulamin / Statut"
-               "sprawozdania.html:Sprawozdania"
-               "kontakt.html:Kontakt" )
-
+####################################  Declaring Maps  #################################
+menubarPagesMap=()
+staticPagesMap=()
 declare -A galleryPagesMap
-
 ####################################  Functions  #####################################
 
 cleanTargetDir(){
@@ -53,7 +47,7 @@ updatingWithCommon () {
 addMenuBar () {
    pageHtmlFilename=$1
 
-   for menubarMapping in "${mainPagesMap[@]}" ; do
+   for menubarMapping in "${menubarPagesMap[@]}" ; do
       menubarFName="${menubarMapping%%:*}"
       menubarTitle="${menubarMapping##*:}"
       if [[ "${pageHtmlFilename}" == "${menubarFName}" ]] ; then
@@ -166,6 +160,13 @@ generatingGalleryLinksAndContentAndMap(){
       #####################################
       galleryPagesMap[${galleryHtmlPage}]=${description}
 
+      #####################################
+      #                                   #
+      # Setting last Gallery HTML page    #
+      #                                   #
+      #####################################
+      lastGalleryPage=${galleryHtmlPage}
+
    done
 }
 
@@ -178,7 +179,7 @@ generatePage(){
        addMenuBar               "${filename}"
        updatingWithCommon       "${filename}"  ${commonsDir}/news-start.txt
 
-       if [[ ${filename} == ${galleryPrefix}*.html ]] ; then
+       if [[ ${filename} == ${galleryPrefix}_*.html ]] ; then
            updatingWithCommon   "${filename}"  ${targetDir}/${galleryLinkFile}
        else
            updatingWithCommon   "${filename}"  ${commonsDir}/news.txt
@@ -186,7 +187,7 @@ generatePage(){
 
        updatingWithCommon       "${filename}"  ${commonsDir}/news-end.txt
 
-       if [[ ${filename} == ${galleryPrefix}*.html ]] ; then
+       if [[ ${filename} == ${galleryPrefix}_*.html ]] ; then
            echo "I am not putting side logo on gallery pages - as there's no place there"
        else
            updatingWithCommon   "${filename}"  ${commonsDir}/sidelogo.txt
@@ -208,7 +209,15 @@ generatePage(){
 main () {
    cleanTargetDir
 
+   lastGalleryPage=unknown
    generatingGalleryLinksAndContentAndMap
+
+   menubarPagesMap=( "index.html:O nas"
+                  "aktualnosci.html:Aktualności"
+                  "${lastGalleryPage}:Galeria"
+                  "prawne.html:Regulamin / Statut"
+                  "sprawozdania.html:Sprawozdania"
+                  "kontakt.html:Kontakt" )
 
    # generating galleries
    for K in "${!galleryPagesMap[@]}" ; do
@@ -217,8 +226,14 @@ main () {
        generatePage "${filename}" "${title}"
    done
 
+   staticPagesMap=( "index.html:O nas"
+                  "aktualnosci.html:Aktualności"
+                  "prawne.html:Regulamin / Statut"
+                  "sprawozdania.html:Sprawozdania"
+                  "kontakt.html:Kontakt" )
+
    # generating main pages
-   for mainPage in "${mainPagesMap[@]}" ; do
+   for mainPage in "${staticPagesMap[@]}" ; do
        filename="${mainPage%%:*}"
        title="${mainPage##*:}"
        generatePage "${filename}" "${title}"
