@@ -190,6 +190,11 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 { color: #444;
   text-decoration: none;} 
 
+.sidelogo
+{ float: right;
+  width: 210px;
+  padding: 0px 40px 15px 20px;}
+
 #content
 { text-align: left;
   width: 900px;
