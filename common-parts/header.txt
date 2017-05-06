@@ -9,8 +9,8 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" type="text/css" href="style/css/style.css" title="style"/>
-    <link rel="stylesheet"  href="style/css/lightslider.css"/>
-
+    <link rel="stylesheet" href="style/css/lightslider.css"/>
+    <link rel="shortcut icon" href="style/images/ikona.ico" type="image/x-icon" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="style/js/lightslider.js"></script>
     <script>
