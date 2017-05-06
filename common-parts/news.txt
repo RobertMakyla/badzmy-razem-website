@@ -3,7 +3,7 @@
 <h4>Karnawał '17</h4>
 <!--h5>2017</h5-->
 <p>
-  Bal karnawałowy dla osób niepełnosprawnych w Zamku Królewskim...<br/>
+  Bal karnawałowy w Zamku Królewskim...<br/>
   <a href="aktualnosci.html#2017-bal">Czytaj więcej</a>
 </p>
 
