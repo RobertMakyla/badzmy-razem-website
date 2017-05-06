@@ -186,7 +186,13 @@ generatePage(){
 
        updatingWithCommon       "${filename}"  ${commonsDir}/news-end.txt
 
-       updatingWithCommon       "${filename}"  ${commonsDir}/sidelogo.txt
+       if [[ ${filename} == ${galleryPrefix}*.html ]] ; then
+           echo "I am not putting side logo on gallery pages - as there's no place there"
+       else
+           updatingWithCommon   "${filename}"  ${commonsDir}/sidelogo.txt
+       fi
+
+       updatingWithCommon   "${filename}"  ${commonsDir}/pagecontent-start.txt
 
        if [[ ${filename} == ${galleryPrefix}_*.html ]] ; then
            addPageContent       "${targetDir}"  "${filename}.${galleryContentSuffix}"  "${targetDir}"  "${filename}"  "${title}"
