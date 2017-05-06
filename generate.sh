@@ -180,7 +180,9 @@ generatePage(){
        updatingWithCommon       "${filename}"  ${commonsDir}/news-start.txt
 
        if [[ ${filename} == ${galleryPrefix}_*.html ]] ; then
+           updatingWithCommon   "${filename}"  ${commonsDir}/galleryLinkFile-start.txt
            updatingWithCommon   "${filename}"  ${targetDir}/${galleryLinkFile}
+           updatingWithCommon   "${filename}"  ${commonsDir}/galleryLinkFile-end.txt
        else
            updatingWithCommon   "${filename}"  ${commonsDir}/news.txt
        fi

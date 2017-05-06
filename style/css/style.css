@@ -334,7 +334,10 @@ a.more link {
 }
 
 .comment {
- 	width: 800px;                 /* ??? */
- 	background-color: #FFF;    /* ??? */
- 	margin: 10px;                 /* ??? */
+ 	width: 800px;
+ 	background-color: #FFF;
+ 	margin: 10px;
 }
+
+.galleryLinkFileContent
+{padding: 15px 0px 0px 0px;}
