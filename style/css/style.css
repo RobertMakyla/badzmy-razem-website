@@ -176,7 +176,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 .sidebar
 { float: left;
   width: 180px;
-  padding: 0 15px 70px 30px;}
+  padding: 0 20px 70px 40px;}
 
 .sidebar ul
 { width: 178px; 
@@ -199,7 +199,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 .sidelogo
 { float: right;
   width: 210px;
-  padding: 10px 50px 110px 30px;}
+  padding: 10px 50px 115px 20px;}
 
 #content
 { text-align: left;
@@ -341,3 +341,9 @@ a.more link {
 
 .galleryLinkFileContent
 {padding: 15px 0px 0px 0px;}
+
+.centertext
+{ text-align: center;}
+
+.lefttext
+{ text-align: left;}
