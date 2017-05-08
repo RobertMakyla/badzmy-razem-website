@@ -24,6 +24,6 @@ fi
 lftp -f "
     open $HOST
     user $USER $PASS
-    mirror --reverse --delete --verbose $SRC $DST
+    mirror --reverse --delete --no-perms --verbose $SRC $DST
     bye
 "
