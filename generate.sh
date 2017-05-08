@@ -6,6 +6,7 @@ commonsDir=common-parts
 styleDir=style
 targetDir=./target
 galleriesDir=galleries
+docsDir=docs
 
 galleryNameFile=name.txt
 galleryLinkFile=gallery.links
@@ -75,9 +76,10 @@ addPageContent () {
    fi
 }
 
-copyStyleAndImages () {
+copyStyleAndDocsAndImages () {
    cp -fr ${styleDir} ${targetDir}
    cp -fr ${galleriesDir} ${targetDir}
+   cp -fr ${docsDir} ${targetDir}
 }
 
 verifyHtmlSyntax () {
@@ -217,7 +219,8 @@ main () {
    menubarPagesMap=( "index.html:O nas"
                   "aktualnosci.html:Aktualności"
                   "${lastGalleryPage}:Galeria"
-                  "prawne.html:Regulamin / Statut"
+                  "regulamin.html:Regulamin"
+                  "statut.html:Statut"
                   "sprawozdania.html:Sprawozdania"
                   "kontakt.html:Kontakt" )
 
@@ -230,7 +233,8 @@ main () {
 
    staticPagesMap=( "index.html:O nas"
                   "aktualnosci.html:Aktualności"
-                  "prawne.html:Regulamin / Statut"
+                  "regulamin.html:Regulamin"
+                  "statut.html:Statut"
                   "sprawozdania.html:Sprawozdania"
                   "kontakt.html:Kontakt" )
 
@@ -241,7 +245,7 @@ main () {
        generatePage "${filename}" "${title}"
    done
 
-   copyStyleAndImages
+   copyStyleAndDocsAndImages
    
    verifyHtmlSyntax
 }

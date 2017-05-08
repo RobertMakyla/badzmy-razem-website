@@ -21,8 +21,8 @@
            $(".comment").shorten({
             	"showChars" : 150,
             	"ellipsesText" : " ...",
-            	"moreText"	: "czytaj więcej",
-            	"lessText"	: "schowaj artykuł",
+            	"moreText"	: "rozwiń",
+            	"lessText"	: "zwiń",
            });
         });
     </script>
