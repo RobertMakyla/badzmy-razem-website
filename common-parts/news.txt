@@ -1,7 +1,14 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Sarbinowo '17</h4>
+<p>
+  Turnus rehabilitacyjny w Sarbinowie...<br/>
+  <a href="aktualnosci.html#2017-sarbinowo">Czytaj więcej</a>
+</p>
+
+<br/>
+
 <h4>Karnawał '17</h4>
-<!--h5>2017</h5-->
 <p>
   Bal karnawałowy w Zamku Królewskim...<br/>
   <a href="aktualnosci.html#2017-bal">Czytaj więcej</a>
