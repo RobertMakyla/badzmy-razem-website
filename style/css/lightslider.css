@@ -168,11 +168,11 @@
 
 /* slider actions */
 .lSAction > a {
-    width: 32px;
+    width: 68px;    /* width of the control buttons */
     display: block;
-    top: 50%;
-    height: 32px;
-    background-image: url('../images/controls.png');
+    top: 45%;       /* how high it is from top */
+    height: 68px;   /* height of the control buttons */
+    background-image: url('../images/controls3.png');
     cursor: pointer;
     position: absolute;
     z-index: 99;
@@ -189,7 +189,7 @@
     left: 10px;
 }
 .lSAction > .lSNext {
-    background-position: -32px 0;
+    background-position: -252px 0;
     right: 10px;
 }
 .lSAction > a.disabled {
