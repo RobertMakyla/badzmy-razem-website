@@ -1,17 +1,17 @@
 <h3>Ostatnio dodane</h3>
 
-<h4>Sarbinowo '17</h4>
+<h4>Mikołaj '17</h4>
 <p>
-  Turnus rehabilitacyjny w Sarbinowie...<br/>
-  <a href="aktualnosci.html#2017-sarbinowo">Czytaj więcej</a>
+  W piątek 8 grudnia 2017 roku przyszedł do członków naszego stowarzyszenia Mikołaj...<br/>
+  <a href="aktualnosci.html#2017-mikolaj">Czytaj więcej</a>
 </p>
 
 <br/>
 
-<h4>Karnawał '17</h4>
+<h4>Sarbinowo '17</h4>
 <p>
-  Bal karnawałowy w Zamku Królewskim...<br/>
-  <a href="aktualnosci.html#2017-bal">Czytaj więcej</a>
+  Turnus rehabilitacyjny w Sarbinowie...<br/>
+  <a href="aktualnosci.html#2017-sarbinowo">Czytaj więcej</a>
 </p>
 
 
