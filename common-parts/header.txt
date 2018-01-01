@@ -2,8 +2,7 @@
 <html>
 
 <head>
-    <title>Bądźmy Razem - Stowarzyszenie Rodzin i Przyjaciół Osób z rozszczepem kręgosłupa i głęboką lub sprzężoną
-        niepełnosprawnością</title>
+    <title>Bądźmy Razem - Niepołomice - Stowarzyszenie Rodzin i Przyjaciół Osób z rozszczepem kręgosłupa i głęboką lub sprzężoną niepełnosprawnością</title>
     <meta name="description" content="Bądźmy Razem Niepołomice"/>
     <meta name="keywords" content="Bądźmy, Razem, Stowarzyszenie, Niepołomice, Rozszczepienie, Niepełnosprawność"/>
     <meta charset="utf-8"/>
