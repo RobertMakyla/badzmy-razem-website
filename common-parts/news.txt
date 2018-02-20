@@ -1,5 +1,11 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Bal Karnawałowy '18</h4>
+<p>
+  We środę 7 lutego 2018 roku, wzorem poprzednich lat...<br/>
+  <a href="aktualnosci.html#2018-bal-karnawalowy">Czytaj więcej</a>
+</p>
+
 <h4>Mikołaj '17</h4>
 <p>
   W piątek 8 grudnia 2017 roku przyszedł do członków naszego stowarzyszenia Mikołaj...<br/>
@@ -8,11 +14,6 @@
 
 <br/>
 
-<h4>Sarbinowo '17</h4>
-<p>
-  Turnus rehabilitacyjny w Sarbinowie...<br/>
-  <a href="aktualnosci.html#2017-sarbinowo">Czytaj więcej</a>
-</p>
 
 
 <!--h3>Useful Links</h3>
