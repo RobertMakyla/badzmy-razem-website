@@ -1,17 +1,17 @@
 <h3>Ostatnio dodane</h3>
 
-<h4>Walne Zebranie '18</h4>
+<h4>Murzasichle '18</h4>
 <p>
-  W sobotę 17 marca 2018 roku w Laboratorium Aktywności...<br/>
-  <a href="aktualnosci.html#2018-walne-zebranie">Czytaj więcej</a>
+  Pod koniec czerwca wyjechaliśmy na weekend do...<br/>
+  <a href="aktualnosci.html#2018-murzasichle">Czytaj więcej</a>
 </p>
 
 <br/>
 
-<h4>Bal Karnawałowy '18</h4>
+<h4>Walne Zebranie '18</h4>
 <p>
-  We środę 7 lutego 2018 roku, wzorem poprzednich lat...<br/>
-  <a href="aktualnosci.html#2018-bal-karnawalowy">Czytaj więcej</a>
+  W sobotę 17 marca 2018 roku w Laboratorium Aktywności...<br/>
+  <a href="aktualnosci.html#2018-walne-zebranie">Czytaj więcej</a>
 </p>
 
 <br/>
