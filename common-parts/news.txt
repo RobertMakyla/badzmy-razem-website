@@ -1,21 +1,20 @@
 <h3>Ostatnio dodane</h3>
 
-<h4>Turnus w Sarbinowie '18</h4>
+<h4>Dziękujemy za <img width=27px height=17px src="style/images/jeden-procent.png" /> podatku !</h4>
+<p>
+  Serdecznie dziękujemy wszystkim którzy zechcieli...<br/>
+  <a href="aktualnosci.html#2018-jeden-procent">Czytaj więcej</a>
+</p>
+
+<br/>
+
+<h4>Turnus w Sarbinowie 18</h4>
 <p>
   W lipcu 2018, jak co roku wybraliśmy się...<br/>
   <a href="aktualnosci.html#2018-sarbinowo">Czytaj więcej</a>
 </p>
 
 <br/>
-
-<h4>Murzasichle '18</h4>
-<p>
-  Pod koniec czerwca wyjechaliśmy na weekend do...<br/>
-  <a href="aktualnosci.html#2018-murzasichle">Czytaj więcej</a>
-</p>
-
-<br/>
-
 
 
 
