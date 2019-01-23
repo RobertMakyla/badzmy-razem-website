@@ -1,5 +1,14 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Nowe zasady wypełniania wniosków</h4>
+<p>
+  Dnia 28 grudnia 2018 roku Prezes Stowarzyszenia...<br/>
+  <a href="aktualnosci.html#2019-nowe zasady">Czytaj więcej</a>
+</p>
+
+<br/>
+
+
 <h4>Szkolenie</h4>
 <p>
   W dniu 18 grudnia 2018 roku odbyło się ...<br/>
@@ -8,13 +17,6 @@
 
 <br/>
 
-<h4>Dziękujemy za <img width=27px height=17px src="style/images/jeden-procent.png" /> podatku !</h4>
-<p>
-  Serdecznie dziękujemy wszystkim którzy zechcieli...<br/>
-  <a href="aktualnosci.html#2018-jeden-procent">Czytaj więcej</a>
-</p>
-
-<br/>
 
 
 
