@@ -1,5 +1,13 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Szkolenie</h4>
+<p>
+  W dniu 18 grudnia 2018 roku odbyło się ...<br/>
+  <a href="aktualnosci.html#2019-szkolenie-int-sens">Czytaj więcej</a>
+</p>
+
+<br/>
+
 <h4>Dziękujemy za <img width=27px height=17px src="style/images/jeden-procent.png" /> podatku !</h4>
 <p>
   Serdecznie dziękujemy wszystkim którzy zechcieli...<br/>
@@ -8,13 +16,6 @@
 
 <br/>
 
-<h4>Turnus w Sarbinowie 18</h4>
-<p>
-  W lipcu 2018, jak co roku wybraliśmy się...<br/>
-  <a href="aktualnosci.html#2018-sarbinowo">Czytaj więcej</a>
-</p>
-
-<br/>
 
 
 
