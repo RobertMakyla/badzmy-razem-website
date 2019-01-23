@@ -1,21 +1,24 @@
 <h3>Ostatnio dodane</h3>
 
+
+<h4>Prośba o <img width=27px height=17px src="style/images/jeden-procent.png" /> podatku za 2018 !</h4>
+<p>
+  Jak co roku nasi niepełnosprawni członkowie...<br/>
+  <a href="aktualnosci.html#2019-jeden-procent">Czytaj więcej</a>
+</p>
+
+<br/>
+
+
 <h4>Nowe zasady wypełniania wniosków</h4>
 <p>
   Dnia 28 grudnia 2018 roku Prezes Stowarzyszenia...<br/>
-  <a href="aktualnosci.html#2019-nowe zasady">Czytaj więcej</a>
+  <a href="aktualnosci.html#2019-nowe-zasady">Czytaj więcej</a>
 </p>
 
 <br/>
 
 
-<h4>Szkolenie</h4>
-<p>
-  W dniu 18 grudnia 2018 roku odbyło się ...<br/>
-  <a href="aktualnosci.html#2019-szkolenie-int-sens">Czytaj więcej</a>
-</p>
-
-<br/>
 
 
 
