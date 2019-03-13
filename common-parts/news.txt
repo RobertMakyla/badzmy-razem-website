@@ -1,6 +1,15 @@
 <h3>Ostatnio dodane</h3>
 
 
+<h4>Bal Karnawałowy</h4>
+<p>
+  21 lutego 2019 roku﻿byliśmy jak co roku zaproszeni...<br/>
+  <a href="aktualnosci.html#2019-bal-karnawalowy">Czytaj więcej</a>
+</p>
+
+<br/>
+
+
 <h4>Prośba o <img width=27px height=17px src="style/images/jeden-procent.png" /> podatku za 2018 !</h4>
 <p>
   Jak co roku nasi niepełnosprawni członkowie...<br/>
@@ -10,13 +19,6 @@
 <br/>
 
 
-<h4>Nowe zasady wypełniania wniosków</h4>
-<p>
-  Dnia 28 grudnia 2018 roku Prezes Stowarzyszenia...<br/>
-  <a href="aktualnosci.html#2019-nowe-zasady">Czytaj więcej</a>
-</p>
-
-<br/>
 
 
 
