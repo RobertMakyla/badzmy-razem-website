@@ -1,5 +1,12 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Walne Zebranie</h4>
+<p>
+  25 kwietnia 2019 roku podsumowaliśmy ...<br/>
+  <a href="aktualnosci.html#2019-walne">Czytaj więcej</a>
+</p>
+
+
 <h4>Badanie i ocena stanu dziecka ...</h4>
 <p>
   8 kwietnia 2019 roku w siedzibie ...<br/>
