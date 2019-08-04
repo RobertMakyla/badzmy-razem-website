@@ -1,5 +1,11 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Turnus w Jaworze</h4>
+<p>
+  W dniach 7 - 20 lipca 2019 roku wyjechaliśmy ...<br/>
+  <a href="aktualnosci.html#2019-jaworze">Czytaj więcej</a>
+</p>
+
 <h4>Walne Zebranie</h4>
 <p>
   25 kwietnia 2019 roku podsumowaliśmy ...<br/>
@@ -11,12 +17,6 @@
 <p>
   8 kwietnia 2019 roku w siedzibie ...<br/>
   <a href="aktualnosci.html#2019-szkolenie-badanie-i-ocena-stanu-dziecka">Czytaj więcej</a>
-</p>
-
-<h4>Bal Karnawałowy</h4>
-<p>
-  21 lutego 2019 roku﻿byliśmy jak co roku zaproszeni...<br/>
-  <a href="aktualnosci.html#2019-bal-karnawalowy">Czytaj więcej</a>
 </p>
 
 <br/>
