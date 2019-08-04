@@ -1,5 +1,10 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Badanie i ocena stanu dziecka ...</h4>
+<p>
+  8 kwietnia 2019 roku w siedzibie ...<br/>
+  <a href="aktualnosci.html#2019-szkolenie-badanie-i-ocena-stanu-dziecka">Czytaj więcej</a>
+</p>
 
 <h4>Bal Karnawałowy</h4>
 <p>
@@ -9,12 +14,6 @@
 
 <br/>
 
-
-<h4>Prośba o <img width=27px height=17px src="style/images/jeden-procent.png" /> podatku za 2018 !</h4>
-<p>
-  Jak co roku nasi niepełnosprawni członkowie...<br/>
-  <a href="aktualnosci.html#2019-jeden-procent">Czytaj więcej</a>
-</p>
 
 <br/>
 
