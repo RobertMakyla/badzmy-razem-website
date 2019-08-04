@@ -1,5 +1,6 @@
         <div class="sidelogo">
            <img src="style/images/logo-k4.png"/>
            <br/>
+           <br/>
            <img src="style/images/logo-niepolomice.jpg" width=100% heigth=100% />
         </div>
