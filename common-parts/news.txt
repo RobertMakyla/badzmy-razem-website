@@ -1,5 +1,11 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Spotkanie Mikołajkowe</h4>
+<p>
+  W dniu 7 grudnia 2019 roku członkowie ...<br/>
+  <a href="aktualnosci.html#2019-mikolajki">Czytaj więcej</a>
+</p>
+
 <h4>Turnus w Jaworze</h4>
 <p>
   W dniach 7 - 20 lipca 2019 roku wyjechaliśmy ...<br/>
@@ -12,12 +18,6 @@
   <a href="aktualnosci.html#2019-walne">Czytaj więcej</a>
 </p>
 
-
-<h4>Badanie i ocena stanu dziecka ...</h4>
-<p>
-  8 kwietnia 2019 roku w siedzibie ...<br/>
-  <a href="aktualnosci.html#2019-szkolenie-badanie-i-ocena-stanu-dziecka">Czytaj więcej</a>
-</p>
 
 <br/>
 
