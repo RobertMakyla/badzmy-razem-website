@@ -1,5 +1,11 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Bal na zamku</h4>
+<p>
+  18 lutego 2020 roku bawiliśmy się ...<br/>
+  <a href="aktualnosci.html#2020-bal-na-zamku">Czytaj więcej</a>
+</p>
+
 <h4>Spotkanie Mikołajkowe</h4>
 <p>
   W dniu 7 grudnia 2019 roku członkowie ...<br/>
@@ -12,11 +18,6 @@
   <a href="aktualnosci.html#2019-jaworze">Czytaj więcej</a>
 </p>
 
-<h4>Walne Zebranie</h4>
-<p>
-  25 kwietnia 2019 roku podsumowaliśmy ...<br/>
-  <a href="aktualnosci.html#2019-walne">Czytaj więcej</a>
-</p>
 
 
 <br/>
