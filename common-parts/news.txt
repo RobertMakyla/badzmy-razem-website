@@ -1,22 +1,25 @@
 <h3>Ostatnio dodane</h3>
 
+
+<h4>Zebranie Walne</h4>
+<p>
+  odbędzie się 12 września 2020 roku w siedzibie ...<br/>
+  <a href="aktualnosci.html#2020-walne">Czytaj więcej</a>
+</p>
+
+<h4>Turnus w Ustce</h4>
+<p>
+  No cóż wakacje się skończyły ale można je powspominać ...<br/>
+  <a href="aktualnosci.html#2020-ustka">Czytaj więcej</a>
+</p>
+
 <h4>Bal na zamku</h4>
 <p>
   18 lutego 2020 roku bawiliśmy się ...<br/>
   <a href="aktualnosci.html#2020-bal-na-zamku">Czytaj więcej</a>
 </p>
 
-<h4>Spotkanie Mikołajkowe</h4>
-<p>
-  W dniu 7 grudnia 2019 roku członkowie ...<br/>
-  <a href="aktualnosci.html#2019-mikolajki">Czytaj więcej</a>
-</p>
 
-<h4>Turnus w Jaworze</h4>
-<p>
-  W dniach 7 - 20 lipca 2019 roku wyjechaliśmy ...<br/>
-  <a href="aktualnosci.html#2019-jaworze">Czytaj więcej</a>
-</p>
 
 
 
