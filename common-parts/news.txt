@@ -1,6 +1,12 @@
 <h3>Ostatnio dodane</h3>
 
 
+<h4>Podsumowanie roku 2019</h4>
+<p>
+  Bilans, Rachunek zysków i strat, ...<br/>
+  <a href="sprawozdania.html">Czytaj więcej</a>
+</p>
+
 <h4>Zebranie Walne</h4>
 <p>
   odbędzie się 12 września 2020 roku w siedzibie ...<br/>
@@ -13,11 +19,6 @@
   <a href="aktualnosci.html#2020-ustka">Czytaj więcej</a>
 </p>
 
-<h4>Bal na zamku</h4>
-<p>
-  18 lutego 2020 roku bawiliśmy się ...<br/>
-  <a href="aktualnosci.html#2020-bal-na-zamku">Czytaj więcej</a>
-</p>
 
 
 
