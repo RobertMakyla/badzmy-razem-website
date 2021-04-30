@@ -1,5 +1,10 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Ćwiczenia symulujące</h4>
+<p>
+  W dniu 10 listopada 2020 roku p. Agniszka Bochenek ...<br/>
+  <a href="aktualnosci.html#2021-cwiczenia">Czytaj więcej</a>
+</p>
 
 <h4>Podsumowanie roku 2019</h4>
 <p>
@@ -13,11 +18,6 @@
   <a href="aktualnosci.html#2020-walne">Czytaj więcej</a>
 </p>
 
-<h4>Turnus w Ustce</h4>
-<p>
-  No cóż wakacje się skończyły ale można je powspominać ...<br/>
-  <a href="aktualnosci.html#2020-ustka">Czytaj więcej</a>
-</p>
 
 
 
