@@ -1,15 +1,15 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Podsumowanie roku 2020</h4>
+<p>
+  Bilans, Rachunek zysków i strat, ...<br/>
+  <a href="sprawozdania.html">Czytaj więcej</a>
+</p>
+
 <h4>Ćwiczenia symulujące</h4>
 <p>
   W dniu 10 listopada 2020 roku p. Agniszka Bochenek ...<br/>
   <a href="aktualnosci.html#2021-cwiczenia">Czytaj więcej</a>
-</p>
-
-<h4>Podsumowanie roku 2019</h4>
-<p>
-  Bilans, Rachunek zysków i strat, ...<br/>
-  <a href="sprawozdania.html">Czytaj więcej</a>
 </p>
 
 <h4>Zebranie Walne</h4>
