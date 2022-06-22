@@ -1,5 +1,11 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Turnus w Dąbkach 2021</h4>
+<p>
+  Dnia 7 sierpnia 2021 roku wyjechaliśmy, ...<br/>
+  <a href="aktualnosci.html#2021-dabki">Czytaj więcej</a>
+</p>
+
 <h4>Podsumowanie roku 2020</h4>
 <p>
   Bilans, Rachunek zysków i strat, ...<br/>
@@ -10,12 +16,6 @@
 <p>
   W dniu 10 listopada 2020 roku p. Agniszka Bochenek ...<br/>
   <a href="aktualnosci.html#2021-cwiczenia">Czytaj więcej</a>
-</p>
-
-<h4>Zebranie Walne</h4>
-<p>
-  odbędzie się 12 września 2020 roku w siedzibie ...<br/>
-  <a href="aktualnosci.html#2020-walne">Czytaj więcej</a>
 </p>
 
 
