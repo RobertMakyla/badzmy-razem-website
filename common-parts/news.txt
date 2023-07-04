@@ -1,5 +1,12 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Podsumowanie roku 2022</h4>
+<p>
+  W zakładce Sprawozdania znajdują się dokumenty.<br/>
+  <a href="sprawozdania.html">Czytaj więcej</a>
+</p>
+
+<br/>
 
 <h4>Zebranie Walne</h4>
 <p>
@@ -8,11 +15,6 @@
 </p>
 
 
-<h4>Ustronie Morskie 2022</h4>
-<p>
-  No cóż wakacje się skończyły ale ...<br/>
-  <a href="aktualnosci.html#2022-ustronie">Czytaj więcej</a>
-</p>
 
 
 
