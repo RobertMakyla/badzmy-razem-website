@@ -1,5 +1,13 @@
 <h3>Ostatnio dodane</h3>
 
+<h4>Turnus w Międzywodziu</h4>
+<p>
+  W tym roku, podobnie jak w ubiegłych latach ...<br/>
+  <a href="aktualnosci.html#2023-miedzywodzie">Czytaj więcej</a>
+</p>
+
+<br/>
+
 <h4>Podsumowanie roku 2022</h4>
 <p>
   W zakładce Sprawozdania znajdują się dokumenty.<br/>
@@ -8,17 +16,10 @@
 
 <br/>
 
-<h4>Zebranie Walne</h4>
-<p>
-  Zebranie Walne odbędzie się ...<br/>
-  <a href="aktualnosci.html#2022-walne">Czytaj więcej</a>
-</p>
 
 
 
 
-
-<br/>
 
 
 <br/>
