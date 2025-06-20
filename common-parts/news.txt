@@ -1,18 +1,21 @@
 <h3>Ostatnio dodane</h3>
 
-<h4>Podsumowanie roku 2023</h4>
+<h4>Podsumowanie roku 2024</h4>
 <p>
   W zakładce Sprawozdania znajdują się dokumenty.<br/>
   <a href="sprawozdania.html">Czytaj więcej</a>
 </p>
 <br/>
 
-<h4>Turnus w Międzywodziu</h4>
+
+
+<!--h4>Podsumowanie roku 2023</h4>
 <p>
-  W tym roku, podobnie jak w ubiegłych latach ...<br/>
-  <a href="aktualnosci.html#2023-miedzywodzie">Czytaj więcej</a>
+  W zakładce Sprawozdania znajdują się dokumenty.<br/>
+  <a href="sprawozdania.html">Czytaj więcej</a>
 </p>
-<br/>
+<br/-->
+
 
 
 
