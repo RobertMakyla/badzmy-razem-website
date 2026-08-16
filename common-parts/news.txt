@@ -1,17 +1,18 @@
 <h3>Ostatnio dodane</h3>
 
 
+<h4>Podsumowanie roku 2025</h4>
+<p>
+  W zakładce Sprawozdania znajdują się dokumenty.<br/>
+  <a href="sprawozdania.html">Czytaj więcej</a>
+</p>
+<br/>
+
+
 <h4>Wrocław</h4>
 <p>
   12 września 2025 roku wyjechaliśmy ...<br/>
   <a href="aktualnosci.html">Czytaj więcej</a>
-</p>
-<br/>
-
-<h4>Podsumowanie roku 2024</h4>
-<p>
-  W zakładce Sprawozdania znajdują się dokumenty.<br/>
-  <a href="sprawozdania.html">Czytaj więcej</a>
 </p>
 <br/>
 
