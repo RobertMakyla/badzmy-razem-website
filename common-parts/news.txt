@@ -1,6 +1,15 @@
 <h3>Ostatnio dodane</h3>
 
 
+
+<h4>Sarbinowo</h4>
+<p>
+  W dniach 19.07-2.08 byliśmy na turnusie ...<br/>
+  <a href="aktualnosci.html">Czytaj więcej</a>
+</p>
+<br/>
+
+
 <h4>Podsumowanie roku 2025</h4>
 <p>
   W zakładce Sprawozdania znajdują się dokumenty.<br/>
@@ -9,12 +18,6 @@
 <br/>
 
 
-<h4>Wrocław</h4>
-<p>
-  12 września 2025 roku wyjechaliśmy ...<br/>
-  <a href="aktualnosci.html">Czytaj więcej</a>
-</p>
-<br/>
 
 
 
